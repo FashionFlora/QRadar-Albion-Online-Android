@@ -1,0 +1,58 @@
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/drawable/activity_chests.xml" value="0.296" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/drawable/back_btn_selector.xml" value="0.1965" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/drawable/bg_btn.xml" value="0.1965" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/drawable/big_square.xml" value="0.3055" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/drawable/border.xml" value="0.2685" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/drawable/cricle.xml" value="0.2905" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/drawable/ic_airline_seat_flat_angled_black_24dp.xml" value="0.3015" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/drawable/ic_build_black_24dp.xml" value="0.1965" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1965" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/drawable/settings.xml" value="0.2905" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/drawable/slider_thumb.xml" value="0.2145" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/drawable/switch_device_selector.xml" value="0.1965" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/drawable/transparent_shape.xml" value="0.306" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/acitivity_about.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/acitivity_packet_detail.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/activity_chest.xml" value="0.11" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/activity_chests.xml" value="0.23984608807182556" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/activity_connection_list.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/activity_harvesting.xml" value="0.18" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/activity_login.xml" value="0.2" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/activity_main.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/activity_mobs.xml" value="0.23770491803278687" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/activity_package_list.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/activity_pvp.xml" value="0.18" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/activity_radar_floating_settings.xml" value="0.22" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/activity_settings.xml" value="0.25651988029072254" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/activity_vpn_capture.xml" value="0.33" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/fragment_capture.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/fragment_chests.xml" value="0.19281744335185977" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/fragment_harvesting.xml" value="0.32558139534883723" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/fragment_history.xml" value="0.19281744335185977" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/fragment_main.xml" value="0.2265625" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/fragment_mobs.xml" value="0.1" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/fragment_pv_p.xml" value="0.25" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/fragment_pvp.xml" value="0.209375" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/fragment_setting.xml" value="0.17015818725951262" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/fragment_settings.xml" value="0.33" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/item_connection.xml" value="0.303125" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/item_conversation.xml" value="0.29791666666666666" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/item_main_adapter.xml" value="0.22" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/item_select_date.xml" value="0.23984608807182556" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/item_select_package.xml" value="0.23984608807182556" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/radar_draw_layout.xml" value="0.1" />
+        <entry key="..\:/Users/Kacper/Desktop/NetWorkPacketCapture-master/app/src/main/res/layout/radar_settings_view.xml" value="0.18" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

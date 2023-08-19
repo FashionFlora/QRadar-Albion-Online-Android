@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tier "
+            android:textColor="@color/white_FFFFFFFF"
+
+            android:textSize="20dp" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="T1"
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="DuplicateIds,MissingConstraints" />
+
+            <CheckBox
+                android:id="@+id/tier1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:text="T2"
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tier1"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="DuplicateIds" />
+
+            <CheckBox
+                android:id="@+id/tier2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintStart_toEndOf="@+id/textView1"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="T3"
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="DuplicateIds,MissingConstraints" />
+
+            <CheckBox
+                android:id="@+id/tier3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:text="T4"
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tier3"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="DuplicateIds" />
+
+            <CheckBox
+                android:id="@+id/tier4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintStart_toEndOf="@+id/textView1"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="T5"
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="DuplicateIds" />
+
+            <CheckBox
+                android:id="@+id/tier5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:text="T6"
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tier5"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="DuplicateIds" />
+
+            <CheckBox
+                android:id="@+id/tier6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintStart_toEndOf="@+id/textView1"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="T7"
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="DuplicateIds" />
+
+            <CheckBox
+                android:id="@+id/tier7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:text="T8"
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tier7"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="DuplicateIds" />
+
+            <CheckBox
+                android:id="@+id/tier8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintStart_toEndOf="@+id/textView1"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enchant "
+            android:textColor="@color/white_FFFFFFFF"
+
+            android:textSize="20dp" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp">
+
+            <TextView
+                android:id="@+id/texregtView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="E0"
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="DuplicateIds,MissingConstraints" />
+
+            <CheckBox
+
+
+                android:id="@+id/enchant0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/textView1"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="NotSibling" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp">
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="E1"
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/enchant1"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/textView1"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="NotSibling" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp">
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="E2"
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="DuplicateIds" />
+
+            <CheckBox
+                android:id="@+id/enchant2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/textView1"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="NotSibling" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp">
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="E3"
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="DuplicateIds" />
+
+            <CheckBox
+                android:id="@+id/enchant3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/textView1"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="NotSibling" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp">
+
+            <TextView
+                android:id="@+id/t3253254extView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="E4"
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <CheckBox
+                android:id="@+id/enchant4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/textView1"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="NotSibling" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Type "
+            android:textColor="@color/white_FFFFFFFF"
+
+            android:textSize="20dp" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp">
+
+            <TextView
+                android:id="@+id/tex543ie4312"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Harvestable"
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="DuplicateIds,MissingConstraints" />
+
+            <CheckBox
+                android:id="@+id/mobHarvestable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="120dp"
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp">
+
+            <TextView
+                android:id="@+id/textView24312"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Skinnable "
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="DuplicateIds" />
+
+            <CheckBox
+                android:id="@+id/mobSkinnable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="120dp"
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp">
+
+            <TextView
+
+                android:id="@+id/textView24312"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Other (no filter) "
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="DuplicateIds" />
+
+            <CheckBox
+                android:id="@+id/mobOther"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="120dp"
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp">
+
+            <TextView
+
+                android:id="@+id/textView2312"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Boss (no filter) "
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/mobBoss"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="120dp"
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rest "
+            android:textColor="@color/white_FFFFFFFF"
+
+            android:textSize="20dp" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="0dp"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:id="@+id/textView24312"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show hp "
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="DuplicateIds,MissingConstraints" />
+
+            <CheckBox
+
+                android:id="@+id/mobHp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="120dp"
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

@@ -1,0 +1,55 @@
+apply plugin: 'com.android.library'
+
+android {
+    signingConfigs {
+        debug {
+            storeFile file('C:\\AndroidSudio\\QRadar.jks')
+            storePassword 'lubmil5512'
+            keyPassword 'lubmil5512'
+            keyAlias 'key01'
+        }
+        release {
+            storeFile file('C:\\AndroidSudio\\Q1.jks')
+            storePassword 'lubmil5512'
+            keyPassword 'lubmil5512'
+            keyAlias '33'
+        }
+    }
+    compileSdkVersion 34
+
+
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 34
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+
+
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility 11
+        sourceCompatibility 11
+    }
+
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.squareup.okio:okio:1.14.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.8.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation("org.greenrobot:eventbus:3.3.1")
+}

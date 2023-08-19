@@ -1,0 +1,80 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white_FFFFFFFF"
+    tools:context="com.minhui.networkcapture.VPNCaptureActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:background="@color/toolbar"
+
+        >
+
+        <TextView
+            android:id="@+id/days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:text="Days left: "
+
+            android:textColor="@color/white_FFFFFFFF"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/select_package"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/package_id"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="Albion QRadar"
+            android:textColor="@color/white_FFFFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/vpn"
+            app:layout_constraintStart_toEndOf="@+id/select_package"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/vpn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="10dp"
+            android:layout_alignParentRight="true"
+            android:enabled="false"
+            android:scaleType="center"
+            android:src="@mipmap/ic_start"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <FrameLayout
+        android:id="@+id/container_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title" />
+
+</RelativeLayout>

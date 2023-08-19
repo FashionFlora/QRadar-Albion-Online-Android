@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.minhui.networkcapture">
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.ACTION_MANAGE_OVERLAY_PERMISSION" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:usesCleartextTraffic="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name="com.minhui.networkcapture.RadarActivities.LoginActivity"
+            android:theme="@style/MyMaterialTheme"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+
+
+
+        <activity
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:name="com.minhui.networkcapture.VPNCaptureActivity"
+             />
+
+
+
+
+
+
+        <activity
+            android:name="com.minhui.networkcapture.RadarActivities.PvPActivity"
+            android:theme="@style/ToolbarTheme"
+          />
+
+        <activity
+            android:name="com.minhui.networkcapture.RadarActivities.HarvestingActivity"
+            android:theme="@style/ToolbarTheme"/>
+
+        <activity
+            android:name="com.minhui.networkcapture.RadarActivities.MobsActivity"
+            android:theme="@style/ToolbarTheme"
+             />
+
+
+
+        <activity
+            android:name="com.minhui.networkcapture.RadarActivities.ChestsActivity"
+            android:theme="@style/ToolbarTheme"
+            android:screenOrientation="fullSensor" />
+
+        <service
+            android:name=".RadarDrawView"
+            android:enabled="true"
+            android:exported="false" />
+    </application>
+
+</manifest>

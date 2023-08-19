@@ -1,0 +1,4 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/dashboard" /> <!-- Set the desired background color, or use transparent -->
+    <corners android:radius="10dp" /> <!-- Set the desired corner radius -->
+</shape>

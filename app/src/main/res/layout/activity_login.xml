@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/toolbar"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+
+
+
+        android:layout_marginTop="80dp"
+        android:layout_height="wrap_content"
+        android:gravity="center |top"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+
+        <TextView
+
+            android:id="@+id/linkDiscord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Visit Example"
+            android:textColor="@color/colorBlue"
+            android:autoLink="all"
+            />
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:id="@+id/linkSite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Visit Example"
+            android:textColor="@color/colorBlue"
+            android:autoLink="all"
+            />
+
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+
+            android:text="QRadar"
+            android:textSize="45dp"
+            android:textColor="@color/white_FFFFFFFF"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"/>
+
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="20dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+        </LinearLayout>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/background"
+            app:cardCornerRadius="16dp">
+
+            <LinearLayout
+                android:background="@color/background"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:background="@color/background"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:boxCornerRadiusTopStart="16dp"
+                    app:boxCornerRadiusTopEnd="16dp"
+                    app:boxCornerRadiusBottomStart="16dp"
+                    app:boxCornerRadiusBottomEnd="16dp"
+                    android:textColorHint="@color/gray"
+                    app:endIconMode="clear_text">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:hint="Username"
+                        android:inputType="textEmailAddress" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:boxCornerRadiusTopStart="16dp"
+                    app:boxCornerRadiusTopEnd="16dp"
+                    app:boxCornerRadiusBottomStart="16dp"
+                    app:boxCornerRadiusBottomEnd="16dp"
+                    android:textColorHint="@color/gray"
+                    app:endIconTint="@color/gray"
+
+
+
+                    app:endIconMode="password_toggle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/password"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Password"
+
+
+                        android:inputType="textPassword" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <CheckBox
+                    android:id="@+id/save_password_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Save password"
+                    android:buttonTint="@color/gray"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:id="@+id/loginErrorTextView"
+                    android:textColor="@color/colorMobCircle"
+                    android:textSize="12dp"
+                    android:layout_height="wrap_content"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/login_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:backgroundTint="@color/background"
+                    android:text="Login"
+                    android:textColor="@color/white_FFFFFFFF"
+                    android:background="@color/toolbar"
+                    app:cornerRadius="16dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</ScrollView>

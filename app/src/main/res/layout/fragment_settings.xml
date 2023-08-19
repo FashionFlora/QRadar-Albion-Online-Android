@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:fillViewport="true">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+
+
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_margin="5dp"
+                android:id="@+id/resetRadar"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:background="@color/dashboard"
+                android:layout_gravity="center"
+                android:text="RESET DRAWINGS"
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="PvP Settings"
+                android:textSize="17dp"
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Circle scale "
+                android:id="@+id/pvpCircleLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+                android:max="35"
+                android:min="1"
+                android:progress="1"
+                android:padding="5dp"
+                android:id="@+id/pvpCircleBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Circle gap "
+                android:id="@+id/pvpCircleGapLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+                android:max="60"
+                android:min="1"
+                android:progress="1"
+                android:padding="5dp"
+                android:id="@+id/pvpCircleGapBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Text gap"
+                android:id="@+id/pvpTextGapLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+                android:max="60"
+                android:min="1"
+                android:progress="1"
+                android:padding="5dp"
+                android:id="@+id/pvpTextGapBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Text size"
+                android:id="@+id/pvpTextSizeLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+                android:max="40"
+                android:min="1"
+                android:progress="1"
+                android:padding="5dp"
+                android:id="@+id/pvpTextSizeBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Harvesting Settings"
+                android:textSize="17dp"
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Icon width/height"
+                android:id="@+id/harvestingWidthHeightLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+                android:max="150"
+                android:min="10"
+                android:progress="1"
+                android:padding="5dp"
+                android:id="@+id/harvestingWidthHeightBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Icon text gap"
+                android:id="@+id/harvestingIconTextGapLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+                android:max="80"
+                android:min="1"
+                android:progress="1"
+                android:padding="5dp"
+                android:id="@+id/harvestingIconTextGapBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Icon text size"
+                android:id="@+id/harvestingIconTextSizeLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+                android:max="50"
+                android:min="1"
+                android:progress="1"
+                android:padding="5dp"
+                android:id="@+id/harvestingIconTextSizeBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Mobs Settings"
+                android:textSize="17dp"
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Icon width/height"
+                android:id="@+id/mobIconWidthHeightLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+                android:max="150"
+                android:min="1"
+                android:progress="1"
+                android:padding="5dp"
+                android:id="@+id/mobIconWidthHeightBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Circle size"
+                android:id="@+id/mobRadarSizeLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+                android:max="50"
+                android:min="1"
+                android:progress="1"
+                android:padding="5dp"
+                android:id="@+id/mobRadarSizeBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text=" Text gap"
+                android:id="@+id/mobTextGapLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+                android:max="50"
+                android:min="1"
+                android:progress="1"
+                android:padding="5dp"
+                android:id="@+id/mobTextGapBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text=" text size"
+                android:id="@+id/mobTextSizeLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+                android:max="50"
+                android:min="1"
+                android:progress="1"
+                android:padding="5dp"
+                android:id="@+id/mobTextSizeBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Chest Settings"
+                android:textSize="17dp"
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Icon width/height"
+                android:id="@+id/chestIconWidthHeightLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+                android:max="150"
+                android:min="10"
+                android:progress="1"
+                android:padding="5dp"
+                android:id="@+id/chestIconWidthHeightBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Global Settings"
+                android:textSize="17dp"
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Radar scale "
+                android:id="@+id/radarScaleLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+                android:max="500"
+                android:min="100"
+                android:progress="5"
+                android:padding="5dp"
+                android:id="@+id/radarScaleBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                 />
+
+
+            <TextView
+                android:id="@+id/radarSizeWidthHeightLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:text="Radar Size width/height  "
+                android:textColor="@color/white_FFFFFFFF" />
+
+            <SeekBar
+
+                android:max="1000"
+                android:min="10"
+                android:progress="5"
+                android:padding="5dp"
+                android:id="@+id/radarSizeWidthHeightBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+
+            <TextView
+                android:id="@+id/radarMiddleCircleLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:text="Middle circle size "
+                android:textColor="@color/white_FFFFFFFF" />
+
+            <SeekBar
+
+                android:max="50"
+                android:min="1"
+                android:progress="1"
+                android:padding="5dp"
+                android:id="@+id/radarMiddleCircleBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show middle circle topmost"
+
+                android:layout_gravity="center"
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <CheckBox
+                android:id="@+id/radarShowTopMostCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center"
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show Square"
+
+                android:layout_gravity="center"
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <CheckBox
+                android:id="@+id/radarShowSquareCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center"
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show Circle"
+
+                android:layout_gravity="center"
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <CheckBox
+                android:id="@+id/radarShowCircleCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center"
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Cricle/Square  border size "
+                android:id="@+id/radarCircleSquareBorderLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+
+                android:max="50"
+                android:min="1"
+                android:progress="1"
+                android:padding="5dp"
+                android:id="@+id/radarCircleSquareBorderBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="radar X "
+                android:id="@+id/radarXLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+
+                android:max="1500"
+                android:min="-1500"
+                android:progress="10"
+                android:padding="5dp"
+                android:id="@+id/radarXBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="radar Y"
+                android:id="@+id/radarYLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+
+                android:max="1500"
+                android:min="-1500"
+                android:progress="5"
+                android:padding="5dp"
+                android:id="@+id/radarYBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Settings width"
+                android:id="@+id/settingsWidthLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+
+                android:max="2500"
+                android:min="700"
+                android:progress="5"
+                android:padding="5dp"
+                android:id="@+id/settingsWidthBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Settings height "
+                android:id="@+id/settingsHeightLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+
+                android:max="2500"
+                android:min="700"
+                android:progress="5"
+                android:padding="5dp"
+                android:id="@+id/settingsHeightBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Floating width/height "
+                android:id="@+id/floatingWidthHeightLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+
+                android:max="500"
+                android:min="90"
+                android:progress="1"
+                android:padding="5dp"
+                android:id="@+id/floatingWidthHeightBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Floating x :"
+                android:id="@+id/floatingXLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+
+                android:max="1500"
+                android:min="-1500"
+                android:progress="5"
+                android:padding="5dp"
+                android:id="@+id/floatingXBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Floating y :"
+                android:id="@+id/floatingYLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+
+                android:max="1500"
+                android:min="-1500"
+                android:progress="5"
+                android:padding="5dp"
+                android:id="@+id/floatingYBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Settings transparency :"
+                android:id="@+id/settingsTransparencyLabel"
+                android:layout_gravity="center"
+
+                android:textColor="@color/white_FFFFFFFF"
+                android:layout_height="wrap_content"/>
+
+            <SeekBar
+
+                android:max="255"
+                android:min="0"
+                android:progress="1"
+                android:padding="5dp"
+                android:id="@+id/settingsTransparencyBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:thumb="@drawable/slider_thumb"
+                />
+
+
+
+
+
+        </LinearLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

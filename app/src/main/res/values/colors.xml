@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark_light">#20303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent_light">#20884081</color>
+    <color name="black_DBDBDB">#DBDBDB</color>
+    <color name="white_FFFFFFFF">#FFFFFFFF</color>
+    <color name="bg_F8F8F9">#F8F8F9</color>
+    <color name="orange_F4840B">#F4840B</color>
+    <color name="black_FF333333">#FF333333</color>
+    <color name="color_33">#333333</color>
+
+    <color name="black">#000000</color>
+    <color name="div_common_edge">#ffc3cdd4</color>
+    <color name="holo_blue_dark">#ff0099cc</color>
+    <color name="background">#191919</color>
+    <color name="toolbar">#111111</color>
+    <color name="text">#FFFF</color>
+    <color name="dashboard">#2b2b2b</color>
+    <color name="gray">#808080</color>
+    <color name="healthColor">#DC143C</color>
+
+
+    <color name="colorMobHp">#FFFF00</color>
+    <color name="colorMobCircle">#DC143C</color>
+
+    <color name="colorGreen">#00FF00</color>
+    <color name="colorBlue">#ff0099cc</color>
+    <color name="colorPurple">#9F2B68</color>
+    <color name="colorLegendary">#FFFF00</color>
+
+
+    <color name="colorHarvestingSize">#FFFFFFFF</color>
+</resources>

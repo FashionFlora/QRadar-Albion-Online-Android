@@ -1,0 +1,65 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    signingConfigs {
+        release {
+            storeFile file('C:\\AndroidSudio\\Q1.jks')
+            storePassword 'lubmil5512'
+            keyPassword 'lubmil5512'
+            keyAlias '33'
+        }
+    }
+    compileSdkVersion 34
+    defaultConfig {
+        applicationId "com.minhui.networkcapture"
+        minSdkVersion 23
+        targetSdkVersion 34
+        versionCode 3
+        versionName "1.0.5"
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+
+        Properties properties = new Properties();
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+
+        buildConfigField "String", "API_KEY" ,"\"${properties.getProperty("API_KEY")}\""
+    }
+    buildTypes {
+        release {
+
+            minifyEnabled true
+            shrinkResources false
+
+
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility 11
+        sourceCompatibility 11
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'com.tencent.bugly:crashreport:2.4.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'org.jsoup:jsoup:1.13.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation("org.greenrobot:eventbus:3.3.1")
+    implementation project(':vpnadaptercore')
+    implementation 'com.google.android.material:material:1.7.0-alpha04'
+    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'com.squareup.okhttp:okhttp:2.7.4'
+
+
+
+
+}

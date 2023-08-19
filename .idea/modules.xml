@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/NetWorkPacketCapture-master.iml" filepath="$PROJECT_DIR$/.idea/modules/NetWorkPacketCapture-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NetWorkPacketCapture-master.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NetWorkPacketCapture-master.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NetWorkPacketCapture-master.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NetWorkPacketCapture-master.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NetWorkPacketCapture-master.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NetWorkPacketCapture-master.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NetWorkPacketCapture-master.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NetWorkPacketCapture-master.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vpnadaptercore/NetWorkPacketCapture-master.vpnadaptercore.iml" filepath="$PROJECT_DIR$/.idea/modules/vpnadaptercore/NetWorkPacketCapture-master.vpnadaptercore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vpnadaptercore/NetWorkPacketCapture-master.vpnadaptercore.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/vpnadaptercore/NetWorkPacketCapture-master.vpnadaptercore.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vpnadaptercore/NetWorkPacketCapture-master.vpnadaptercore.main.iml" filepath="$PROJECT_DIR$/.idea/modules/vpnadaptercore/NetWorkPacketCapture-master.vpnadaptercore.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vpnadaptercore/NetWorkPacketCapture-master.vpnadaptercore.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/vpnadaptercore/NetWorkPacketCapture-master.vpnadaptercore.unitTest.iml" />
+    </modules>
+  </component>
+</project>

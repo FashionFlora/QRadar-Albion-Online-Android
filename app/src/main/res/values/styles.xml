@@ -1,0 +1,48 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/background</item>
+        <item name="colorPrimaryDark">@color/background</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="windowActionBar">false</item>
+
+    </style>
+    <style name="setting_text_explain">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_gravity">center|left</item>
+        <item name="android:drawablePadding">15dp</item>
+    </style>
+
+    <style name="ToolbarTheme"  parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/background</item>
+        <item name="colorPrimaryDark">@color/background</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/black</item>
+
+
+    </style>
+
+
+
+    <style name="MyMaterialTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Add attributes here -->
+        <item name="colorPrimary">@color/gray</item>
+    </style>
+
+    <style name="circleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ThemeCustom.TabLayout" parent="Theme.MaterialComponents.DayNight"/>
+
+
+
+</resources>

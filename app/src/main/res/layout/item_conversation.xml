@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/head_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/head"
+            android:textColor="@android:color/holo_red_light" />
+
+        <TextView
+            android:id="@+id/conversation_head_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/head_title"
+            android:layout_marginTop="10dp"
+            android:text="get"  />
+
+        <TextView
+            android:id="@+id/body_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/conversation_head_text"
+            android:layout_marginTop="10dp"
+            android:text="@string/body"
+            android:textColor="@android:color/holo_red_light" />
+
+        <com.minhui.networkcapture.SmartTextView
+            android:id="@+id/conversation_body_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/body_title"
+            android:layout_marginTop="10dp"
+            tools:text="xxxxxxx" />
+
+        <ImageView
+            android:id="@+id/conversation_body_im"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@id/body_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            tools:src="@drawable/app_icon" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,120 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:focusableInTouchMode="false"
+    android:focusable="false"
+    android:clickable="false"
+    android:contextClickable="false"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+
+
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:id="@+id/settings_edit"
+    android:focusable="true"
+    android:clickable="true"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/tab_layout"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tab1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:background="@color/background"
+            android:gravity="center"
+            android:textColor="@color/white_FFFFFFFF"
+            android:padding="15dp"
+
+            android:text="PVP" />
+
+        <TextView
+            android:id="@+id/tab2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/background"
+            android:gravity="center"
+            android:padding="15dp"
+            android:textColor="@color/white_FFFFFFFF"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Harvest" />
+
+        <TextView
+            android:id="@+id/tab3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/background"
+            android:gravity="center"
+            android:padding="15dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/white_FFFFFFFF"
+            android:text="Mobs" />
+
+
+        <TextView
+            android:id="@+id/tab4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/background"
+            android:ellipsize="end"
+            android:maxLines="1"
+
+            android:gravity="center"
+            android:textColor="@color/white_FFFFFFFF"
+            android:padding="15dp"
+            android:text="Chests" />
+
+        <TextView
+            android:id="@+id/tab5"
+            android:layout_width="0dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/background"
+            android:gravity="center"
+            android:padding="15dp"
+            android:textColor="@color/white_FFFFFFFF"
+            android:text="Settings" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/content_layout"
+        android:layout_width="match_parent"
+        android:background="#10000000"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
+</FrameLayout>

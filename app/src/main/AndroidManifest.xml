@@ -23,7 +23,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name="com.minhui.networkcapture.RadarActivities.LoginActivity"
+        <activity android:name="com.minhui.networkcapture.VPNCaptureActivity"
             android:theme="@style/MyMaterialTheme"
             android:exported="true">
             <intent-filter>
@@ -35,11 +35,18 @@
 
 
 
-
+        <!--
         <activity
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:name="com.minhui.networkcapture.VPNCaptureActivity"
              />
+
+         <activity
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:name="com.minhui.networkcapture.RadarActivities.LoginActivity"
+             />
+
+        -->
 
 
 

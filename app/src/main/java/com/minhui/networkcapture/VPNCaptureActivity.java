@@ -162,11 +162,11 @@ public class VPNCaptureActivity extends FragmentActivity {
         mContext = this;
 
 
-
+        /*
         String value = getIntent().getStringExtra("logged");
         float daysAmount = getIntent().getFloatExtra("days",0);
         days = findViewById(R.id.days);
-
+        
 
 
 
@@ -274,7 +274,7 @@ public class VPNCaptureActivity extends FragmentActivity {
 
 
 
-
+        */
 
 
 

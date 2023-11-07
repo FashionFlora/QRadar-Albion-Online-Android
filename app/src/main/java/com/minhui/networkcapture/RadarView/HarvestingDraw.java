@@ -71,7 +71,7 @@ public class HarvestingDraw {
                 continue;
             }
 
-            if(!RadarSettings.getInstance().harvestingTiers[h.getTier()]){
+            if(!RadarSettings.getInstance().harvestingTiers[h.getTier() -1]){
 
                 continue;
             }

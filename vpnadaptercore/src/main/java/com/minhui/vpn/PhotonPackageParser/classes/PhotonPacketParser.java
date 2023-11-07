@@ -66,17 +66,17 @@ public class PhotonPacketParser {
             case  27:
                 newPlayerEvent.addNewPlayer(Parameters);
                 break;
-            case 200:
+            case 201:
 
                 newPlayerEvent.updateMounted(Parameters);
                 break;
 
-            case 43:
+            case 44:
                 newMobEvent.updateEnchant(Parameters);
 
                 break;
 
-            case 117:
+            case 118:
 
                 newMobEvent.addNewMob(Parameters);
 
@@ -84,7 +84,7 @@ public class PhotonPacketParser {
 
 
 
-            case 35:
+            case 36:
 
                newHarvestableEvent.addNewHarvestableSimple(Parameters);
 
@@ -92,14 +92,14 @@ public class PhotonPacketParser {
                 break;
 
 
-            case 36:
+            case 37:
 
                newHarvestableEvent.addNewHarvestable(Parameters);
 
                 break;
 
 
-            case 57:
+            case 58:
                 newHarvestableEvent.update(Parameters);
 
                 break;

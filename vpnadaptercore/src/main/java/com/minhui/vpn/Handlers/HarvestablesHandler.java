@@ -1,111 +1,117 @@
 package com.minhui.vpn.Handlers;
 
 import com.minhui.vpn.Handlers.HandlerItem.Harvestable;
+import com.minhui.vpn.Handlers.HandlerItem.Mob;
+import com.minhui.vpn.PhotonPackageParser.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HarvestablesHandler {
+public class HarvestablesHandler
+{
     private ArrayList<Harvestable> harvestableList;
 
     public HarvestablesHandler() {
         harvestableList = new ArrayList<>();
     }
 
-    public void addHarvestable(int id, int type, int tier, float posX, float posY, int charges, int size) {
-
+    public void addHarvestable(int id, int type, int tier, float posX, float posY, int charges, int enchant)
+    {
         SharedLocks.harvestablesHandlerLock.writeLock().lock();
 
-        try {
-            Harvestable h = new Harvestable(id, type, tier, posX, posY, charges, size);
-            if (!harvestableList.contains(h)) {
-                harvestableList.add(h);
-                // System.out.println("New Harvestable: " + h.toString());
-            } else {
-                h.setCharges(charges);
-            }
+        try
+        {
+            Harvestable h = new Harvestable(id, type, tier, posX, posY, charges, enchant);
+            harvestableList.add(h);
         }
-        finally {
+        finally
+        {
             SharedLocks.harvestablesHandlerLock.writeLock().unlock();
         }
     }
-
 
     public void removeNotInRange(float lpX , float lpY)
     {
-
         SharedLocks.harvestablesHandlerLock.writeLock().lock();
-        try {
-            harvestableList.removeIf(x -> calculateDistance(lpX,lpY, x.getPosX(), x.getPosY())>80);
-        }finally {
+
+        try
+        {
+            harvestableList.removeIf(x -> Utils.calculateDistance(lpX, lpY, x.getPosX(), x.getPosY()) > Utils.MaxDistance);
+        }
+        finally
+        {
             SharedLocks.harvestablesHandlerLock.writeLock().unlock();
         }
-
-
     }
 
-    public double calculateDistance(double lpX, double lpY, double posX, double posY) {
-        double deltaX = lpX - posX;
-        double deltaY = lpY - posY;
-        double distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-        return distance;
-    }
-
-
-
-    public void removeHarvestable(int id) {
-
+    public void removeHarvestable(int id)
+    {
         SharedLocks.harvestablesHandlerLock.writeLock().lock();
+
         try
         {
             harvestableList.removeIf(x -> x.getId() == id);
-        }  finally {
+        }
+        finally
+        {
             SharedLocks.harvestablesHandlerLock.writeLock().unlock();
         }
-
-
     }
 
-    public ArrayList<Harvestable> getHarvestableList() {
-
+    public ArrayList<Harvestable> getHarvestableList()
+    {
         SharedLocks.harvestablesHandlerLock.readLock().lock();
+
         try
         {
             return  new ArrayList<>(harvestableList);
-        }finally {
+        }
+        finally
+        {
             SharedLocks.harvestablesHandlerLock.readLock().unlock();
         }
-
     }
 
-    public void updateHarvestable(int harvestableId, int count) {
-
+    public void updateHarvestable(int harvestableId, int charges, int enchantment)
+    {
         SharedLocks.harvestablesHandlerLock.writeLock().lock();
-        try {
-            for (Harvestable h : harvestableList) {
-                if (h.getId() == harvestableId) {
-                    int size = h.getSize() - count;
-                    if (size <= 0) {
-                        removeHarvestable(harvestableId);
-                    } else {
-                        h.setSize(size);
+
+        try
+        {
+            for (Harvestable h : harvestableList)
+            {
+                if (h.getId() == harvestableId)
+                {
+                    if (charges <= 0)
+                    {
+                        h.setCharges(0);
+                        h.setEnchant(enchantment);
+                    }
+                    else
+                    {
+                        h.setCharges(charges);
+                        h.setEnchant(enchantment);
                     }
                     break;
                 }
             }
         }
-        finally {
+        finally
+        {
             SharedLocks.harvestablesHandlerLock.writeLock().unlock();
         }
     }
 
-    public void clear() {
-
+    public void clear()
+    {
         SharedLocks.harvestablesHandlerLock.writeLock().lock();
+
         try
         {
             harvestableList.clear();
-        }  finally {
+        }
+        finally
+        {
             SharedLocks.harvestablesHandlerLock.writeLock().unlock();
         }
     }

@@ -3,17 +3,17 @@ package com.minhui.networkcapture.RadarView;
 import android.graphics.Bitmap;
 import android.util.LruCache;
 
-public class BitmapCache {
+public class BitmapCache
+{
     private LruCache<String, Bitmap> mMemoryCache;
 
-    public BitmapCache() {
-
+    public BitmapCache()
+    {
         final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
-
-
         final int cacheSize = maxMemory / 8;
 
-        mMemoryCache = new LruCache<String, Bitmap>(cacheSize) {
+        mMemoryCache = new LruCache<String, Bitmap>(cacheSize)
+        {
             @Override
             protected int sizeOf(String key, Bitmap bitmap) {
                 return bitmap.getByteCount() / 1024;
@@ -21,8 +21,10 @@ public class BitmapCache {
         };
     }
 
-    public void addBitmapToMemoryCache(String key, Bitmap bitmap) {
-        if (getBitmapFromMemCache(key) == null) {
+    public void addBitmapToMemoryCache(String key, Bitmap bitmap)
+    {
+        if (getBitmapFromMemCache(key) == null)
+        {
             mMemoryCache.put(key, bitmap);
         }
     }

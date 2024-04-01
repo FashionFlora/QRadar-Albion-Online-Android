@@ -1,6 +1,7 @@
 package com.minhui.vpn.Handlers;
 
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
@@ -13,155 +14,191 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.stream.Collectors;
 
-public class PlayersHandler {
+public class PlayersHandler
+{
     ArrayList<Player> playersInRange = new ArrayList<>();
     private Player localPlayer;
-    private boolean invalidate;
 
-
-
-    public PlayersHandler() {
+    public PlayersHandler()
+    {
         playersInRange = new ArrayList<>();
         localPlayer = new Player();
     }
 
     public  ArrayList<Player> getPlayersInRange()
     {
-
         SharedLocks.playerHandlerLock.readLock().lock();
-        try {
+
+        try
+        {
             return new ArrayList<>(playersInRange);
-        } finally {
+        }
+        finally
+        {
             SharedLocks.playerHandlerLock.readLock().unlock();
         }
-
     }
 
-    public  void  addPlayer(float posX, float posY, int id, String nickname, String guildName, float currentHealth, float initialHealth, short[] items) {
-
+    public void addPlayer(float posX, float posY, int id, String nickname, String guildName, float currentHealth, float maxHealth, float currentEnergy, float maxEnergy, short[] items)
+    {
         SharedLocks.playerHandlerLock.writeLock().lock();
-        try {
-            Player player = new Player(posX, posY, id, nickname, guildName ,  currentHealth, initialHealth, items);
+
+        try
+        {
+            Player player = new Player(id, posX, posY, nickname, guildName, currentHealth, maxHealth, currentEnergy, maxEnergy, items);
             playersInRange.add(player);
         }
-        finally {
+        finally
+        {
             SharedLocks.playerHandlerLock.writeLock().unlock();
         }
     }
-
-    public void updateLocalPlayerNextPosition(float posX, float posY) {
-        // TODO: Implement update local player next position
-        throw new UnsupportedOperationException();
-    }
-
-    public void updatePlayerMounted(int id, boolean mounted) {
-
+    public void updatePlayerMounted(int id, boolean mounted)
+    {
         SharedLocks.playerHandlerLock.writeLock().lock();
-        try {
-            for (Player player : playersInRange) {
-                if (player.getId() == id) {
+
+        try
+        {
+            for (Player player : playersInRange)
+            {
+                if (player.getId() == id)
+                {
                     player.setMounted(mounted);
                     break;
                 }
             }
-        } finally {
+        }
+        finally
+        {
             SharedLocks.playerHandlerLock.writeLock().unlock();
         }
-
-
     }
 
-
-
-
-
-
-    public  void removePlayer(int id) {
-
-
+    public  void removePlayer(int id)
+    {
         SharedLocks.playerHandlerLock.writeLock().lock();
-        try {
 
+        try
+        {
             playersInRange.removeIf(player -> player.getId() == id);
-        } finally {
+        }
+        finally
+        {
             SharedLocks.playerHandlerLock.writeLock().unlock();
         }
-
-
-
     }
 
-
-    public    void  updateLocalPlayerPosition(float posX, float posY) {
-
-        synchronized (SharedLocks.localPlayerLock) {
+    public void updateLocalPlayerPosition(float posX, float posY, float angle, float targetposX, float targetposY, float speed)
+    {
+        synchronized (SharedLocks.localPlayerLock)
+        {
             localPlayer.setPosX(posX);
             localPlayer.setPosY(posY);
-        }
 
+            localPlayer.setAngle(angle);
+
+            localPlayer.setTargetPosX(targetposX);
+            localPlayer.setTargetPosY(targetposY);
+
+            localPlayer.setSpeed(speed);
+        }
+    }
+
+    public void updateLocalPlayer(int characterId, int[] markId, String nickname, String guildName, String cluster, float posX, float posY,
+                                  float angle, float currentHealth, float maxHealth, float currentEnergy, float maxEnergy, int faction)
+    {
+        synchronized (SharedLocks.localPlayerLock)
+        {
+            localPlayer.Update(characterId, markId, nickname, guildName, cluster, posX, posY, angle,
+                    currentHealth, maxHealth, currentEnergy, maxEnergy, faction);
+        }
+    }
+
+    public String localPlayerGuildName()
+    {
+        synchronized (SharedLocks.localPlayerLock)
+        {
+            return localPlayer.getGuild();
+        }
+    }
+
+    public String localPlayerAlliance()
+    {
+        synchronized (SharedLocks.localPlayerLock)
+        {
+            return localPlayer.getAlliance();
+        }
+    }
+
+    public float localPlayerFaction()
+    {
+        synchronized (SharedLocks.localPlayerLock)
+        {
+            return localPlayer.getFaction();
+        }
     }
 
 
-
-
-    public  float localPlayerPosX() {
-
-        synchronized (SharedLocks.localPlayerLock) {
+    public  float localPlayerPosX()
+    {
+        synchronized (SharedLocks.localPlayerLock)
+        {
             return localPlayer.getPosX();
         }
-
     }
 
-    public   float localPlayerPosY() {
-
-        synchronized (SharedLocks.localPlayerLock) {
+    public   float localPlayerPosY()
+    {
+        synchronized (SharedLocks.localPlayerLock)
+        {
             return localPlayer.getPosY();
         }
     }
 
-    public  void updatePlayerPosition(int id, float posX, float posY) {
-
+    public  void updatePlayerPosition(int id, float posX, float posY)
+    {
         SharedLocks.playerHandlerLock.writeLock().lock();
-        try {
-            for (Player player : playersInRange) {
-                if (player.getId() == id) {
+
+        try
+        {
+            for (Player player : playersInRange)
+            {
+                if (player.getId() == id)
+                {
                     player.setPosX(posX);
                     player.setPosY(posY);
                 }
             }
-        } finally {
+        }
+        finally
+        {
             SharedLocks.playerHandlerLock.writeLock().unlock();
         }
     }
 
-    public void updatePlayerHealth(int id, float currentHealth) {
-        for (Player player : playersInRange) {
-            if (player.getId() == id) {
+    public void updatePlayerHealth(int id, float currentHealth)
+    {
+        for (Player player : playersInRange)
+        {
+            if (player.getId() == id)
+            {
                 player.setCurrentHealth(currentHealth);
                 break;
             }
         }
     }
 
-    public void updatePlayerInitialHealth(int id, float currentHealth, float initialHealth) {
-        for (Player player : playersInRange) {
-            if (player.getId() == id) {
-                player.setCurrentHealth(currentHealth);
-                player.setInitialHealth(initialHealth);
-                break;
-            }
-        }
-    }
 
-
-    public void clear() {
-
+    public void clear()
+    {
         SharedLocks.playerHandlerLock.writeLock().lock();
-        try {
 
+        try
+        {
             playersInRange.clear();
-
-        } finally {
+        }
+        finally
+        {
             SharedLocks.playerHandlerLock.writeLock().unlock();
         }
     }

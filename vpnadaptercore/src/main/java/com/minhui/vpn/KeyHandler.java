@@ -8,6 +8,7 @@ import java.nio.channels.SelectionKey;
  *         Copyright © 2017年 Oceanwing. All rights reserved.
  */
 
-public interface KeyHandler {
+public interface KeyHandler
+{
     void onKeyReady(SelectionKey key);
 }

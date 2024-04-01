@@ -1,47 +1,49 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
 
-android {
-    signingConfigs {
-        release {
-            storeFile file('C:\\AndroidSudio\\Q1.jks')
-            storePassword 'lubmil5512'
-            keyPassword 'lubmil5512'
+android
+{
+    signingConfigs
+    {
+        release
+        {
+            storeFile file('C:\\Users\\jdeleon\\StudioProjects\\QRadar-Albion-Online-Android\\key\\key.jks')
+            storePassword 'Usuario@2024#'
+            keyPassword 'Usuario@2024#'
             keyAlias '33'
         }
     }
-    compileSdkVersion 34
-    defaultConfig {
-        applicationId "com.minhui.networkcapture"
-        minSdkVersion 23
-        targetSdkVersion 34
-        versionCode 3
-        versionName "1.0.5"
-
+    compileSdkVersion 33
+    defaultConfig
+    {
+        applicationId 'com.minhui.networkcapture.albion'
+        minSdkVersion 24
+        targetSdkVersion 33
+        versionCode 15
+        versionName '1.1.7.0'
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
-
         Properties properties = new Properties();
         properties.load(project.rootProject.file("local.properties").newDataInputStream())
-
         buildConfigField "String", "API_KEY" ,"\"${properties.getProperty("API_KEY")}\""
+        signingConfig signingConfigs.release
     }
-    buildTypes {
-        release {
-
+    buildTypes
+    {
+        release
+        {
             minifyEnabled true
             shrinkResources false
-
-
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
+    compileOptions
+    {
         targetCompatibility 11
         sourceCompatibility 11
     }
 }
 
-dependencies {
+dependencies
+{
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -58,8 +60,5 @@ dependencies {
     implementation 'com.google.android.material:material:1.7.0-alpha04'
     implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'com.squareup.okhttp:okhttp:2.7.4'
-
-
-
-
+    implementation 'com.hypertrack:hyperlog:0.0.10'
 }

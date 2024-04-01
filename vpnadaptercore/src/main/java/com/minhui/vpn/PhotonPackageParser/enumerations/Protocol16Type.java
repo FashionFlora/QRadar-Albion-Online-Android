@@ -1,6 +1,7 @@
 package com.minhui.vpn.PhotonPackageParser.enumerations;
 
-public enum Protocol16Type {
+public enum Protocol16Type
+{
     Unknown((byte) 0),
     Null((byte) 42),
     Dictionary((byte) 68),

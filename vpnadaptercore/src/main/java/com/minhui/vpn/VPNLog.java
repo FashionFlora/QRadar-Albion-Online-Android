@@ -7,16 +7,14 @@ import android.util.Log;
  * Copyright © 2017年 minhui.zhu. All rights reserved.
  */
 
-public class VPNLog {
-  public    static boolean isMakeDebugLog = true;
+public class VPNLog
+{
+  public static boolean isMakeDebugLog = true;
 
-    //open the debug log so you can get the vpn message
-    public static void makeDebugLog(boolean isMake) {
-        isMakeDebugLog = isMake;
-    }
-
-    public static void d(String tag, String message) {
-        if (isMakeDebugLog) {
+    public static void d(String tag, String message)
+    {
+        if (isMakeDebugLog)
+        {
             Log.d(tag, message);
         }
     }

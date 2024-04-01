@@ -12,55 +12,63 @@ public class ChestHandler {
         chestsList = new ArrayList<>();
     }
 
-    public void addChest(int id, float posX, float posY, String name) {
-
+    public void addChest(int id, float posX, float posY, String name)
+    {
         SharedLocks.chestsHandlerLock.writeLock().lock();
 
-        try {
+        try
+        {
             Chest chest = new Chest(id, posX, posY, name);
-            if (!chestsList.contains(chest)) {
+
+            if (!chestsList.contains(chest))
+            {
                 chestsList.add(chest);
             }
-        }finally {
+        }
+        finally
+        {
             SharedLocks.chestsHandlerLock.writeLock().unlock();
         }
-
     }
 
-
-
-    public void removeChest(int id) {
-
-
+    public void removeChest(int id)
+    {
         SharedLocks.chestsHandlerLock.writeLock().lock();
-        try{
+
+        try
+        {
             chestsList.removeIf(chest -> chest.getId() == id);
         }
-        finally {
+        finally
+        {
             SharedLocks.chestsHandlerLock.writeLock().unlock();
         }
-
     }
 
     public  ArrayList<Chest> getChests()
     {
-
         SharedLocks.chestsHandlerLock.readLock().lock();
-        try {
+
+        try
+        {
             return new ArrayList<Chest>(chestsList);
-        } finally {
+        }
+        finally
+        {
             SharedLocks.chestsHandlerLock.readLock().unlock();
         }
-
     }
-
 
     public void clear() {
 
         SharedLocks.chestsHandlerLock.writeLock().lock();
-        try {
+
+        try
+        {
             chestsList.clear();
-        } finally {
+        }
+        finally
+        {
             SharedLocks.chestsHandlerLock.writeLock().unlock();
         }
     }

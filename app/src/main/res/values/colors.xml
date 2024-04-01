@@ -22,6 +22,8 @@
     <color name="gray">#808080</color>
     <color name="healthColor">#DC143C</color>
 
+    <color name="colorBlueSky">#8beff7</color>
+
 
     <color name="colorMobHp">#FFFF00</color>
     <color name="colorMobCircle">#DC143C</color>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">抓包精灵</string>
+    <string name="app_name">Albion QRadar</string>
     <string name="all">抓所有的包</string>
     <string name="ssl">SSL</string>
     <string name="find">抓包</string>
@@ -19,7 +19,7 @@
     <string name="cancel">取消</string>
     <string name="go_to_give_the_issue">去Github上展示您出现的问题吗？</string>
     <string name="about_app">关于抓包精灵</string>
-    <string name="email_address">邮箱:821579706@qq.com</string>
+    <string name="email_address">邮箱:judero01@gmail.com</string>
     <string name="qq_address">QQ群:692721889</string>
     <string name="github_address">Github地址:https://github.com/huolizhuminh/NetWorkPacketCapture</string>
     <string name="body">Body:</string>

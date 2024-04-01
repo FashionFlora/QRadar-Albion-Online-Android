@@ -1,10 +1,8 @@
 package com.minhui.networkcapture;
 
 import android.annotation.SuppressLint;
-import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -16,72 +14,33 @@ import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.app.NotificationCompat;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.minhui.networkcapture.RadarActivities.RadarFloatingActivity;
 import com.minhui.networkcapture.RadarView.RadarSettings;
 import com.minhui.networkcapture.RadarView.RadarView;
 import com.minhui.vpn.Handlers.MainHandler;
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-
-import java.util.EventListener;
-
-public class RadarDrawView extends Service  {
-
+public class RadarDrawView extends Service
+{
     private WindowManager windowManager;
     private View overlayView;
     private View overlaySettingsView;
-
     View radarFloatingSettingsView;
-
     boolean onLongMove = false;
-
     int screenWidth =0;
-
     int screenHeight =0;
-
     RadarDrawView radarDrawViewPseudoSingleton;
     private static final String CHANNEL_ID = "my_channel_01";
 
-    private void createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel serviceChannel = new NotificationChannel(
-                    CHANNEL_ID,
-                    "My Service Channel",
-                    NotificationManager.IMPORTANCE_DEFAULT
-            );
-
-            NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(serviceChannel);
-        }
-    }
-
-
-
     @Override
-    public void onCreate() {
+    public void onCreate()
+    {
         super.onCreate();
-
-
-
-
-
-
-
 
         /*
 
@@ -100,10 +59,7 @@ public class RadarDrawView extends Service  {
                 .build();
 
         startForeground(1, notification);
-
-
-         */
-
+        */
 
         radarDrawViewPseudoSingleton = this;
 
@@ -117,148 +73,142 @@ public class RadarDrawView extends Service  {
         showOverlayWindow();
     }
 
+    private void createNotificationChannel()
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
+            NotificationChannel serviceChannel = new NotificationChannel(
+                    CHANNEL_ID,
+                    "My Service Channel",
+                    NotificationManager.IMPORTANCE_DEFAULT
+            );
+
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(serviceChannel);
+        }
+    }
+
+
     @Override
     public IBinder onBind(Intent intent) {
         return null;
     }
 
     @Override
-    public void onDestroy() {
+    public void onDestroy()
+    {
         super.onDestroy();
+
         windowManager.removeView(overlayView);
+
         if(overlaySettingsView!=null)
         {
-
-                windowManager.removeView(overlaySettingsView);
-
+            windowManager.removeView(overlaySettingsView);
         }
+
         if(radarFloatingSettingsView!=null)
         {
-            try {
+            try
+            {
                 windowManager.removeView(radarFloatingSettingsView);
             }
-            catch (Exception e){}
+            catch (Exception e)
+            {
+
+            }
         }
 
         MainHandler.getInstance().clearAll();
-
     }
+
     RadarView radarDrawView;
-
-    private  boolean  showRadarActivitySettings = false;
-
-
-
-
+    private boolean showRadarActivitySettings = false;
     private int initialX;
     private int initialY;
     private float initialTouchX;
     private float initialTouchY;
-
     SharedPreferences sharedPreferences;
-
     LayoutInflater layoutInflater;
-
-
-    boolean isLongDragging =false;
+    boolean isLongDragging = false;
     WindowManager.LayoutParams layoutParams;
+    WindowManager.LayoutParams layoutParamsSettingsView;
 
     public void setRadarSize(int size)
     {
-
         layoutParams.width = size;
         layoutParams.height = size;
         windowManager.updateViewLayout(overlayView,layoutParams);
 
         radarDrawView.initMatrix();
-
-
     }
-
     WindowManager.LayoutParams layoutParamsSettingsFloatingView;
 
-
-    public  void setRadarX(int progress) {
-
+    public  void setRadarX(int progress)
+    {
         layoutParams.x = progress;
         windowManager.updateViewLayout(overlayView,layoutParams);
     }
 
-    public void setRadarY(int progress) {
-
-
+    public void setRadarY(int progress)
+    {
         layoutParams.y = progress;
         windowManager.updateViewLayout(overlayView,layoutParams);
     }
 
     public void setSettingsHeightPost(int height)
     {
-   //     layoutParamsSettingsFloatingView.height = height;
-  //      windowManager.updateViewLayout(radarFloatingSettingsView,height);
+       // layoutParamsSettingsFloatingView.height = height;
+       // windowManager.updateViewLayout(radarFloatingSettingsView,height);
     }
+
     public void setSettingsWidthPost(int widthPost)
     {
-    //    layoutParamsSettingsFloatingView.width = widthPost;
- //       windowManager.updateViewLayout(radarFloatingSettingsView,widthPost);
+        // layoutParamsSettingsFloatingView.width = widthPost;
+        // windowManager.updateViewLayout(radarFloatingSettingsView,widthPost);
     }
 
-
-    public void setSettingsHeight(int progress) {
-
+    public void setSettingsHeight(int progress)
+    {
         /*
-        layoutParamsSettingsFloatingView.height = progress;
-        windowManager.updateViewLayout(radarFloatingSettingsView,layoutParamsSettingsFloatingView);
-
+            layoutParamsSettingsFloatingView.height = progress;
+            windowManager.updateViewLayout(radarFloatingSettingsView,layoutParamsSettingsFloatingView);
          */
 
         ViewGroup.LayoutParams layoutParams =settings_edit.getLayoutParams();
-
         layoutParams.height = progress;
-
         settings_edit.setLayoutParams(layoutParams);
     }
 
-    public void setSettingsWidth(int progress) {
-
-
-      //  layoutParamsSettingsFloatingView.width = progress;
-    //    windowManager.updateViewLayout(radarFloatingSettingsView,layoutParamsSettingsFloatingView);
-
+    public void setSettingsWidth(int progress)
+    {
+        //  layoutParamsSettingsFloatingView.width = progress;
+        //  windowManager.updateViewLayout(radarFloatingSettingsView,layoutParamsSettingsFloatingView);
 
         ViewGroup.LayoutParams layoutParams =settings_edit.getLayoutParams();
-
         layoutParams.width = progress;
-
         settings_edit.setLayoutParams(layoutParams);
-
     }
 
-    WindowManager.LayoutParams layoutParamsSettingsView;
-    public void setFloatingX(int progress) {
-
+    public void setFloatingX(int progress)
+    {
         layoutParamsSettingsView.x = progress;
         windowManager.updateViewLayout(overlaySettingsView,layoutParamsSettingsView);
     }
 
-    public void setFloatingY(int progress) {
-
+    public void setFloatingY(int progress)
+    {
         layoutParamsSettingsView.y = progress;
-
         windowManager.updateViewLayout(overlaySettingsView,layoutParamsSettingsView);
-
     }
 
-    public void setFloatingSize(int progress) {
-
+    public void setFloatingSize(int progress)
+    {
         layoutParamsSettingsView.width = progress;
         layoutParamsSettingsView.height = progress;
         windowManager.updateViewLayout(overlaySettingsView,layoutParamsSettingsView);
-
     }
 
     LinearLayout settings_edit;
-
-
     LinearLayout content_layout;
 
     public void reInitMatrix()
@@ -266,24 +216,19 @@ public class RadarDrawView extends Service  {
         radarDrawView.initMatrix();
     }
 
-
-    private void showOverlayWindow() {
+    private void showOverlayWindow()
+    {
         // Inflate the overlay view
         overlayView = LayoutInflater.from(this).inflate(R.layout.radar_draw_layout, null);
         overlaySettingsView = LayoutInflater.from(this).inflate(R.layout.radar_settings_view, null);
         radarFloatingSettingsView = LayoutInflater.from(this).inflate(R.layout.activity_radar_floating_settings, null);
 
-
         settings_edit =  radarFloatingSettingsView.findViewById(R.id.settings_edit);
         content_layout = radarFloatingSettingsView.findViewById(R.id.content_layout);
         layoutInflater=LayoutInflater.from(this);
 
-
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
-
-
-
 
         layoutParams = new WindowManager.LayoutParams(
                 RadarSettings.getInstance().radarSizeWidthHeightBar, RadarSettings.getInstance().radarSizeWidthHeightBar,
@@ -293,28 +238,13 @@ public class RadarDrawView extends Service  {
                         WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 PixelFormat.TRANSLUCENT);
 
-
-
-            layoutParams.x = RadarSettings.getInstance().radarXBar;
-            layoutParams.y = RadarSettings.getInstance().radarYBar;
-
-
-
-
-
-
+        layoutParams.x = RadarSettings.getInstance().radarXBar;
+        layoutParams.y = RadarSettings.getInstance().radarYBar;
 
         radarDrawView = overlayView.findViewById(R.id.radarView);
 
-
-
-
         // Add the overlay view to the window manager
         windowManager.addView(overlayView, layoutParams);
-
-
-
-
 
         WindowManager.LayoutParams layoutParamsSettingsFloatingView = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.WRAP_CONTENT,
@@ -326,15 +256,11 @@ public class RadarDrawView extends Service  {
         // Add radarFloatingSettingsView first, so it is below overlaySettingsView
         windowManager.addView(radarFloatingSettingsView, layoutParamsSettingsFloatingView);
 
-
         radarFloatingSettingsView.setVisibility(View.GONE);
          new RadarFloatingActivity(radarFloatingSettingsView, layoutInflater , radarDrawView, radarDrawViewPseudoSingleton);
 
-
-
-
         layoutParamsSettingsView = new WindowManager.LayoutParams(
-                RadarSettings.getInstance().floatingWidthHeightBar ,
+                RadarSettings.getInstance().floatingWidthHeightBar,
                 RadarSettings.getInstance().floatingWidthHeightBar,
                 getWindowType(),
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
@@ -347,64 +273,55 @@ public class RadarDrawView extends Service  {
         layoutParamsSettingsView.x = RadarSettings.getInstance().floatingXBar;
         layoutParamsSettingsView.y = RadarSettings.getInstance().floatingYBar;
 
-
-        ViewGroup.LayoutParams layoutParams =settings_edit.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = settings_edit.getLayoutParams();
         layoutParams.height = RadarSettings.getInstance().settingsHeightBar;
         layoutParams.width = RadarSettings.getInstance().settingsWidthBar;
         settings_edit.setLayoutParams(layoutParams);
         windowManager.addView(overlaySettingsView, layoutParamsSettingsView);
 
         content_layout.setBackgroundColor(Color.argb(RadarSettings.getInstance().settingsTransparencyBar,0,0,0));
-
-
-        overlaySettingsView.setOnClickListener(new View.OnClickListener() {
+        overlaySettingsView.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-
+            public void onClick(View view)
+            {
                 Log.d("overlaySettingsView" ,"clicked "+  showRadarActivitySettings);
 
-
-
-
                 showRadarActivitySettings = !showRadarActivitySettings;
+
                 if(showRadarActivitySettings)
                 {
                     radarFloatingSettingsView.setVisibility(View.VISIBLE);
                 }
                 else
                 {
-
                     radarFloatingSettingsView.setVisibility(View.GONE);
-
                 }
-
-
-
-
             }
         });
     }
     private static final String ANDROID_CHANNEL_ID = "com.minhui.Location.Channel";
     private static final int NOTIFICATION_ID = 555;
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
+    public int onStartCommand(Intent intent, int flags, int startId)
+    {
         return super.onStartCommand(intent, flags, startId);
-
-
     }
 
-
-    private int getWindowType() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+    private int getWindowType()
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
             return WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
-        } else {
+        }
+        else
+        {
             return WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
         }
     }
 
-
-    public void setTransparencySettings(int color) {
-
+    public void setTransparencySettings(int color)
+    {
         content_layout.setBackgroundColor(color);
     }
 }

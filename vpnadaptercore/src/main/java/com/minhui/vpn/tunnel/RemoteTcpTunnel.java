@@ -7,7 +7,6 @@ import com.minhui.vpn.VPNConstants;
 import com.minhui.vpn.nat.NatSession;
 import com.minhui.vpn.nat.NatSessionManager;
 import com.minhui.vpn.processparse.PortHostService;
-import com.minhui.vpn.utils.ACache;
 import com.minhui.vpn.utils.TcpDataSaveHelper;
 import com.minhui.vpn.utils.ThreadProxy;
 import com.minhui.vpn.utils.TimeFormatUtil;
@@ -21,14 +20,17 @@ import java.nio.channels.Selector;
 /**
  * Created by zengzheying on 15/12/31.
  */
-public class RemoteTcpTunnel extends RawTcpTunnel {
+public class RemoteTcpTunnel extends RawTcpTunnel
+{
     TcpDataSaveHelper helper;
     NatSession session;
     private final Handler handler;
 
-    public RemoteTcpTunnel(InetSocketAddress serverAddress, Selector selector, short portKey) throws IOException {
+    public RemoteTcpTunnel(InetSocketAddress serverAddress, Selector selector, short portKey) throws IOException
+    {
         super(serverAddress, selector, portKey);
         session = NatSessionManager.getSession(portKey);
+
         String helperDir = new StringBuilder()
                 .append(VPNConstants.DATA_DIR)
                 .append(TimeFormatUtil.formatYYMMDDHHMMSS(session.vpnStartTime))
@@ -38,14 +40,15 @@ public class RemoteTcpTunnel extends RawTcpTunnel {
 
         helper = new TcpDataSaveHelper(helperDir);
         handler = new Handler(Looper.getMainLooper());
-
     }
 
 
     @Override
-    protected void afterReceived(ByteBuffer buffer) throws Exception {
+    protected void afterReceived(ByteBuffer buffer) throws Exception
+    {
         super.afterReceived(buffer);
         refreshSessionAfterRead(buffer.limit());
+
         TcpDataSaveHelper.SaveData saveData = new TcpDataSaveHelper
                 .SaveData
                 .Builder()
@@ -55,12 +58,13 @@ public class RemoteTcpTunnel extends RawTcpTunnel {
                 .offSet(0)
                 .build();
         helper.addData(saveData);
-
     }
 
     @Override
-    protected void beforeSend(ByteBuffer buffer) throws Exception {
+    protected void beforeSend(ByteBuffer buffer) throws Exception
+    {
         super.beforeSend(buffer);
+
         TcpDataSaveHelper.SaveData saveData = new TcpDataSaveHelper
                 .SaveData
                 .Builder()
@@ -69,51 +73,41 @@ public class RemoteTcpTunnel extends RawTcpTunnel {
                 .length(buffer.limit())
                 .offSet(0)
                 .build();
+
         helper.addData(saveData);
         refreshAppInfo();
-
     }
 
-    private void refreshAppInfo() {
-        if (session.appInfo != null) {
+    private void refreshAppInfo()
+    {
+        if (session.appInfo != null)
+        {
             return;
         }
-        if (PortHostService.getInstance() != null) {
-            ThreadProxy.getInstance().execute(new Runnable() {
-                @Override
-                public void run() {
-                    PortHostService.getInstance().refreshSessionInfo();
-                }
-            });
+
+        if (PortHostService.getInstance() != null)
+        {
+            ThreadProxy.getInstance().execute(() -> PortHostService.getInstance().refreshSessionInfo());
         }
     }
 
-    private void refreshSessionAfterRead(int size) {
-
+    private void refreshSessionAfterRead(int size)
+    {
         session.receivePacketNum++;
         session.receiveByteNum += size;
-
     }
 
     @Override
-    protected void onDispose() {
+    protected void onDispose()
+    {
         super.onDispose();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                ThreadProxy.getInstance().execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (session.receiveByteNum == 0 && session.bytesSent == 0) {
-                            return;
-                        }
 
-
-                      //  ACache configACache = ACache.get(parentFile);
-                  //      configACache.put(session.getUniqueName(), session);
-                    }
-                });
+        handler.postDelayed(() -> ThreadProxy.getInstance().execute(() ->
+        {
+            if (session.receiveByteNum == 0 && session.bytesSent == 0)
+            {
+                return;
             }
-        }, 1000);
+        }), 1000);
     }
 }

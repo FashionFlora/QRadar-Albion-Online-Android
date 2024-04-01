@@ -3,24 +3,13 @@ package com.minhui.vpn.PhotonPackageParser.Events;
 import com.minhui.vpn.Handlers.MainHandler;
 import com.minhui.vpn.PhotonPackageParser.Utils;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 
-public class NewChestEvent   {
-
-
-
-
-
-
-    public void addNewChest(HashMap<Object, Object> parameters) {
-
-
-
+public class NewChestEvent
+{
+    public void NewTreasureChest(HashMap<Object, Object> parameters)
+    {
         int  id  = Utils.getNumber(parameters.get(0));
-
 
         float[] chestPosition = Utils.getFloats(parameters.get(1));
 
@@ -47,6 +36,7 @@ public class NewChestEvent   {
                  chestName = "legendary";
              }
         }
+
         if(chestName.contains("green"))
         {
             chestName = "standard";
@@ -65,24 +55,10 @@ public class NewChestEvent   {
         }
 
         MainHandler.getInstance().chestHandler.addChest(id,chestPosition[0],chestPosition[1], chestName);
-
-
-
     }
-
-
-
-
-    public void removeChest(HashMap<Object, Object> parameters ) {
-
-
+    public void removeChest(HashMap<Object, Object> parameters )
+    {
         int id = Utils.getNumber(parameters.get(0));
-
         MainHandler.getInstance().chestHandler.removeChest(id);
-
-
-
     }
-
-
 }

@@ -14,7 +14,8 @@ import java.util.concurrent.ConcurrentHashMap;
  * Created by zengzheying on 15/12/29.
  * NAT管理对象
  */
-public class NatSessionManager {
+public class NatSessionManager
+{
     /**
      * 会话保存的最大个数
      */
@@ -49,7 +50,8 @@ public class NatSessionManager {
     /**
      * 清除过期的会话
      */
-    static void clearExpiredSessions() {
+    static void clearExpiredSessions()
+    {
         long now = System.currentTimeMillis();
         Set<Map.Entry<Short, NatSession>> entries = sessions.entrySet();
         Iterator<Map.Entry<Short, NatSession>> iterator = entries.iterator();

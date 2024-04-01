@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/NetWorkPacketCapture-master.iml" filepath="$PROJECT_DIR$/.idea/modules/NetWorkPacketCapture-master.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NetWorkPacketCapture-master.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NetWorkPacketCapture-master.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NetWorkPacketCapture-master.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NetWorkPacketCapture-master.app.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NetWorkPacketCapture-master.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NetWorkPacketCapture-master.app.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NetWorkPacketCapture-master.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NetWorkPacketCapture-master.app.unitTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vpnadaptercore/NetWorkPacketCapture-master.vpnadaptercore.iml" filepath="$PROJECT_DIR$/.idea/modules/vpnadaptercore/NetWorkPacketCapture-master.vpnadaptercore.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vpnadaptercore/NetWorkPacketCapture-master.vpnadaptercore.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/vpnadaptercore/NetWorkPacketCapture-master.vpnadaptercore.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vpnadaptercore/NetWorkPacketCapture-master.vpnadaptercore.main.iml" filepath="$PROJECT_DIR$/.idea/modules/vpnadaptercore/NetWorkPacketCapture-master.vpnadaptercore.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vpnadaptercore/NetWorkPacketCapture-master.vpnadaptercore.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/vpnadaptercore/NetWorkPacketCapture-master.vpnadaptercore.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/QRadar-Albion-Online-Android.iml" filepath="$PROJECT_DIR$/.idea/modules/QRadar-Albion-Online-Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/QRadar-Albion-Online-Android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/QRadar-Albion-Online-Android.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/QRadar-Albion-Online-Android.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/QRadar-Albion-Online-Android.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/QRadar-Albion-Online-Android.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/QRadar-Albion-Online-Android.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/QRadar-Albion-Online-Android.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/QRadar-Albion-Online-Android.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vpnadaptercore/QRadar-Albion-Online-Android.vpnadaptercore.iml" filepath="$PROJECT_DIR$/.idea/modules/vpnadaptercore/QRadar-Albion-Online-Android.vpnadaptercore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vpnadaptercore/QRadar-Albion-Online-Android.vpnadaptercore.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/vpnadaptercore/QRadar-Albion-Online-Android.vpnadaptercore.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vpnadaptercore/QRadar-Albion-Online-Android.vpnadaptercore.main.iml" filepath="$PROJECT_DIR$/.idea/modules/vpnadaptercore/QRadar-Albion-Online-Android.vpnadaptercore.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vpnadaptercore/QRadar-Albion-Online-Android.vpnadaptercore.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/vpnadaptercore/QRadar-Albion-Online-Android.vpnadaptercore.unitTest.iml" />
     </modules>
   </component>
 </project>

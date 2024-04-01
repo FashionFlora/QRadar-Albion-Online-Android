@@ -1,10 +1,7 @@
 package com.minhui.vpn.PhotonPackageParser.Operations;
 
-public class MoveLocalPlayerOperation {
-
-
-
-
+public class MoveLocalPlayerOperation
+{
 
 
 }

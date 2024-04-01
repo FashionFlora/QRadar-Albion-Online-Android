@@ -22,7 +22,8 @@ import java.util.Set;
 /**
  * Created by zengzheying on 15/12/30.
  */
-public class TcpProxyServer implements Runnable {
+public class TcpProxyServer implements Runnable
+{
     private static final String TAG = "TcpProxyServer";
     public boolean Stopped;
     public short port;
@@ -31,7 +32,8 @@ public class TcpProxyServer implements Runnable {
     ServerSocketChannel mServerSocketChannel;
     Thread mServerThread;
 
-    public TcpProxyServer(int port) throws IOException {
+    public TcpProxyServer(int port) throws IOException
+    {
         mSelector = Selector.open();
 
         mServerSocketChannel = ServerSocketChannel.open();
@@ -45,31 +47,41 @@ public class TcpProxyServer implements Runnable {
     }
 
     /**
-     * 启动TcpProxyServer线程
+     * TcpProxyServer
      */
     public void start() {
         mServerThread = new Thread(this, "TcpProxyServerThread");
         mServerThread.start();
     }
 
-    public void stop() {
+    public void stop()
+    {
         this.Stopped = true;
-        if (mSelector != null) {
-            try {
+
+        if (mSelector != null)
+        {
+            try
+            {
                 mSelector.close();
                 mSelector = null;
-            } catch (Exception ex) {
-
+            }
+            catch (Exception ex)
+            {
                 DebugLog.e("TcpProxyServer mSelector.close() catch an exception: %s", ex);
             }
         }
 
-        if (mServerSocketChannel != null) {
-            try {
+        if (mServerSocketChannel != null)
+        {
+            try
+            {
                 mServerSocketChannel.close();
                 mServerSocketChannel = null;
-            } catch (Exception ex) {
-                if (AppDebug.IS_DEBUG) {
+            }
+            catch (Exception ex)
+            {
+                if (AppDebug.IS_DEBUG)
+                {
                     ex.printStackTrace(System.err);
                 }
 
@@ -80,36 +92,56 @@ public class TcpProxyServer implements Runnable {
 
 
     @Override
-    public void run() {
-        try {
-            while (true) {
+    public void run()
+    {
+        try
+        {
+            while (true)
+            {
                 int select = mSelector.select();
-                if (select == 0) {
+
+                if (select == 0)
+                {
                     Thread.sleep(1);
                     continue;
                 }
+
                 Set<SelectionKey> selectionKeys = mSelector.selectedKeys();
-                if (selectionKeys == null) {
+
+                if (selectionKeys == null)
+                {
                     continue;
                 }
 
                 Iterator<SelectionKey> keyIterator = mSelector.selectedKeys().iterator();
-                while (keyIterator.hasNext()) {
+
+                while (keyIterator.hasNext())
+                {
                     SelectionKey key = keyIterator.next();
-                    if (key.isValid()) {
-                        try {
-                            if (key.isAcceptable()) {
+
+                    if (key.isValid())
+                    {
+                        try
+                        {
+                            if (key.isAcceptable())
+                            {
                                 VPNLog.d(TAG, "isAcceptable");
                                 onAccepted(key);
-                            } else {
+                            }
+                            else
+                            {
                                 Object attachment = key.attachment();
-                                if (attachment instanceof KeyHandler) {
+
+                                if (attachment instanceof KeyHandler)
+                                {
                                     ((KeyHandler) attachment).onKeyReady(key);
                                 }
                             }
-
-                        } catch (Exception ex) {
-                            if (AppDebug.IS_DEBUG) {
+                        }
+                        catch (Exception ex)
+                        {
+                            if (AppDebug.IS_DEBUG)
+                            {
                                 ex.printStackTrace(System.err);
                             }
 
@@ -118,57 +150,71 @@ public class TcpProxyServer implements Runnable {
                     }
                     keyIterator.remove();
                 }
-
-
             }
-        } catch (Exception e) {
-            if (AppDebug.IS_DEBUG) {
+        }
+        catch (Exception e)
+        {
+            if (AppDebug.IS_DEBUG)
+            {
                 e.printStackTrace(System.err);
             }
 
             DebugLog.e("updServer catch an exception: %s", e);
-        } finally {
+        }
+        finally
+        {
             this.stop();
             DebugLog.i("udpServer thread exited.");
         }
     }
 
-    InetSocketAddress getDestAddress(SocketChannel localChannel) {
+    InetSocketAddress getDestAddress(SocketChannel localChannel)
+    {
         short portKey = (short) localChannel.socket().getPort();
         NatSession session = NatSessionManager.getSession(portKey);
-        if (session != null) {
+
+        if (session != null)
+        {
             return new InetSocketAddress(localChannel.socket().getInetAddress(), session.remotePort & 0xFFFF);
         }
         return null;
     }
 
-    void onAccepted(SelectionKey key) {
+    void onAccepted(SelectionKey key)
+    {
         TcpTunnel localTunnel = null;
-        try {
+
+        try
+        {
             SocketChannel localChannel = mServerSocketChannel.accept();
             localTunnel = TunnelFactory.wrap(localChannel, mSelector);
             short portKey = (short) localChannel.socket().getPort();
             InetSocketAddress destAddress = getDestAddress(localChannel);
-            if (destAddress != null) {
+
+            if (destAddress != null)
+            {
                 TcpTunnel remoteTunnel = TunnelFactory.createTunnelByConfig(destAddress, mSelector, portKey);
-                //关联兄弟
+
                 remoteTunnel.setIsHttpsRequest(localTunnel.isHttpsRequest());
                 remoteTunnel.setBrotherTunnel(localTunnel);
                 localTunnel.setBrotherTunnel(remoteTunnel);
-                //开始连接
+
                 remoteTunnel.connect(destAddress);
             }
-        } catch (Exception ex) {
-            if (AppDebug.IS_DEBUG) {
+        }
+        catch (Exception ex)
+        {
+            if (AppDebug.IS_DEBUG)
+            {
                 ex.printStackTrace(System.err);
             }
 
             DebugLog.e("TcpProxyServer onAccepted catch an exception: %s", ex);
 
-            if (localTunnel != null) {
+            if (localTunnel != null)
+            {
                 localTunnel.dispose();
             }
         }
     }
-
 }

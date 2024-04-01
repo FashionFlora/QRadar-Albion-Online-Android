@@ -7,12 +7,6 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.hypertrack.hyperlog.DeviceLogModel;
-import com.hypertrack.hyperlog.HLCallback;
-import com.hypertrack.hyperlog.HyperLog;
-import com.hypertrack.hyperlog.error.HLErrorResponse;
-import com.hypertrack.hyperlog.utils.Utils;
-
 import java.io.File;
 import java.util.List;
 

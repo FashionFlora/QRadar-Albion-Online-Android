@@ -11,14 +11,19 @@ import java.util.Locale;
  *         Copyright © 2017年 Oceanwing. All rights reserved.
  */
 
-public class TimeFormatUtil {
+public class TimeFormatUtil
+{
     private static DateFormat HHMMSSSFormat = new SimpleDateFormat("HH:mm:ss:s", Locale.getDefault());
     private static DateFormat formatYYMMDDHHMMSSFormat=new SimpleDateFormat("yyyy:MM:dd_HH:mm:ss:s", Locale.getDefault());
-    public static String formatHHMMSSMM(long time) {
+
+    public static String formatHHMMSSMM(long time)
+    {
         Date date = new Date(time);
         return HHMMSSSFormat.format(date);
     }
-    public static String formatYYMMDDHHMMSS(long time) {
+
+    public static String formatYYMMDDHHMMSS(long time)
+    {
         Date date = new Date(time);
         return formatYYMMDDHHMMSSFormat.format(date);
     }

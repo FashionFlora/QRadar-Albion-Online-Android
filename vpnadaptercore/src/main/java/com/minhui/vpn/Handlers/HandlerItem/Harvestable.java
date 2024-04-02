@@ -1,14 +1,14 @@
 package com.minhui.vpn.Handlers.HandlerItem;
 
-public class Harvestable {
+public class Harvestable
+{
     private int id;
     private int type;
     private int tier;
     private float posX;
     private float posY;
     private int charges;
-    private int size;
-    private String enchant;
+    private int enchant;
 
     public int getId() {
         return id;
@@ -54,33 +54,24 @@ public class Harvestable {
         return charges;
     }
 
-    public void setCharges(int charges) {
+    public void setCharges(int charges)
+    {
         this.charges = charges;
     }
 
-    public int getSize() {
-        return size;
-    }
+    public int getEnchant() { return this.enchant; }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public int getEnchant() {
-        return this.charges;
-    }
-
-    public void setEnchant(String enchant) {
+    public void setEnchant(int enchant) {
         this.enchant = enchant;
     }
 
-    public Harvestable(int id, int type, int tier, float posX, float posY, int charges, int size) {
+    public Harvestable(int id, int type, int tier, float posX, float posY, int charges, int enchant) {
         this.id = id;
         this.type = type;
         this.tier = tier;
         this.posX = posX;
         this.posY = posY;
         this.charges = charges;
-        this.size = size;
+        this.enchant = enchant;
     }
 }

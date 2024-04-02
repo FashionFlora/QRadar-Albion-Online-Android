@@ -1,6 +1,9 @@
 package com.minhui.vpn.Handlers.HandlerItem;
 
-public class Mob {
+import com.minhui.vpn.PhotonPackageParser.enumerations.MobCodes;
+
+public class Mob
+{
     public int id;
     public int typeId;
     public float posX;
@@ -9,13 +12,16 @@ public class Mob {
     public int enchantmentLevel;
     public int rarity;
     public int tier;
-    public int type = 2;
+    public MobCodes type = MobCodes.Enemy;
     public String name;
     public int exp = 0;
+    public boolean info;
 
-    public Mob(int id, int typeId, float posX, float posY, int health, int enchantmentLevel, int rarity) {
+    public Mob(int id, int typeId, String name, float posX, float posY, int health, int enchantmentLevel, int rarity)
+    {
         this.id = id;
         this.typeId = typeId;
+        this.name = name;
         this.posX = posX;
         this.posY = posY;
         this.health = health;
@@ -24,7 +30,8 @@ public class Mob {
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "id:" + id + " typeId: " + typeId + " posX: " + posX + " posY: " + posY + " health: " + health + " charges: " + enchantmentLevel;
     }
 
@@ -68,28 +75,34 @@ public class Mob {
         this.health = health;
     }
 
+    public int getRarity() {
+        return rarity;
+    }
+
+    public void setRarity(int rarity) {
+        this.rarity = rarity;
+    }
+
     public int  getEnchantmentLevel() {
         return enchantmentLevel;
     }
 
-    public void setEnchantmentLevel(int enchantmentLevel) {
+    public void setEnchantmentLevel(int enchantmentLevel)
+    {
         this.enchantmentLevel = enchantmentLevel;
     }
-
-
-    public int getType() {
-
+    public MobCodes getType()
+    {
         return this.type;
-
     }
 
-    public int getTier() {
+    public int getTier()
+    {
         return  this.tier;
-
     }
 
-    public String getName() {
+    public String getName()
+    {
         return this.name;
-
     }
 }

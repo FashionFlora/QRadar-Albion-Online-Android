@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QRadar111</string>
+    <string name="app_name">Albion QRadar</string>
     <string name="all">Capture all Packet</string>
     <string name="ssl">SSL</string>
     <string name="find">Capture</string>
@@ -17,8 +17,8 @@
     <string name="do_you_want_star">Go to star the project in the Github?</string>
     <string name="cancel">Cancel</string>
     <string name="go_to_give_the_issue">Go to show your issue in the Github?</string>
-    <string name="about_app">About NetworkCapture</string>
-    <string name="email_address">Email:821579706@qq.com</string>
+    <string name="about_app">About Albion QRadar</string>
+    <string name="email_address">Email:judero01@gmail.com</string>
     <string name="qq_address">QQ Group:692721889</string>
     <string name="github_address">Github:https://github.com/huolizhuminh/NetWorkPacketCapture</string>
     <string name="body">Body:</string>
@@ -32,5 +32,5 @@
     <string name="show_udp">Show UDP</string>
     <string name="save_udp">Save UDP Packet</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 </resources>

@@ -17,29 +17,20 @@ import com.minhui.networkcapture.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainFragment extends Fragment {
-
-
+public class MainFragment extends Fragment
+{
     RecyclerView dataList;
     List<String> titles;
     List<Integer> images;
     MainDashBoardAdapter adapter;
 
-
-
-
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-
-
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
+    {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
-
         dataList = view.findViewById(R.id.dataList);
-
-
 
         titles = new ArrayList<>();
         images = new ArrayList<>();
@@ -55,6 +46,7 @@ public class MainFragment extends Fragment {
         images.add(R.drawable.devil);
         images.add(R.drawable.treasure);
         images.add(R.drawable.setting);
+
         adapter = new MainDashBoardAdapter(getContext(),titles,images);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2,GridLayoutManager.VERTICAL,false);
@@ -63,10 +55,6 @@ public class MainFragment extends Fragment {
 
         dataList.setAdapter(adapter);
 
-
-
-
         return view;
-
     }
 }

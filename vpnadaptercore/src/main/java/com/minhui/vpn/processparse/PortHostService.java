@@ -19,8 +19,8 @@ import java.util.List;
  *         Copyright © 2017年 Oceanwing. All rights reserved.
  */
 
-public class PortHostService extends Service {
-    private static final String ACTION = "action";
+public class PortHostService extends Service
+{
     private static final String TAG = "PortHostService";
     private static PortHostService instance;
     private boolean isRefresh = false;
@@ -32,7 +32,8 @@ public class PortHostService extends Service {
     }
 
     @Override
-    public void onCreate() {
+    public void onCreate()
+    {
         super.onCreate();
         NetFileManager.getInstance().init(getApplicationContext());
         instance = this;
@@ -43,71 +44,78 @@ public class PortHostService extends Service {
     }
 
     @Override
-    public void onDestroy() {
+    public void onDestroy()
+    {
         super.onDestroy();
         instance = null;
     }
 
-    public List<NatSession> getAndRefreshSessionInfo() {
+    public void refreshSessionInfo()
+    {
         List<NatSession> allSession = NatSessionManager.getAllSession();
         refreshSessionInfo(allSession);
-        return allSession;
-
     }
 
-    public void refreshSessionInfo() {
-
-        List<NatSession> allSession = NatSessionManager.getAllSession();
-        refreshSessionInfo(allSession);
-
-
-    }
-
-    private void refreshSessionInfo(List<NatSession> netConnections) {
-        if (isRefresh || netConnections == null) {
+    private void refreshSessionInfo(List<NatSession> netConnections)
+    {
+        if (isRefresh || netConnections == null)
+        {
             return;
         }
+
         boolean needRefresh = false;
-        for (NatSession connection : netConnections) {
-            if (connection.appInfo == null) {
+
+        for (NatSession connection : netConnections)
+        {
+            if (connection.appInfo == null)
+            {
                 needRefresh = true;
                 break;
             }
         }
-        if (!needRefresh) {
+
+        if (!needRefresh)
+        {
             return;
         }
+
         isRefresh = true;
-        try {
+
+        try
+        {
             NetFileManager.getInstance().refresh();
 
-            for (NatSession connection : netConnections) {
-                if (connection.appInfo == null) {
+            for (NatSession connection : netConnections)
+            {
+                if (connection.appInfo == null)
+                {
                     int searchPort = connection.localPort & 0XFFFF;
                     Integer uid = NetFileManager.getInstance().getUid(searchPort);
 
-                    if (uid != null) {
+                    if (uid != null)
+                    {
                         VPNLog.d(TAG, "can not find uid");
                         connection.appInfo = AppInfo.createFromUid(VpnServiceHelper.getContext(), uid);
                     }
                 }
             }
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             VPNLog.d(TAG,"failed to refreshSessionInfo "+e.getMessage());
-
         }
 
         isRefresh = false;
-
     }
 
-
-    public static void startParse(Context context) {
+    public static void startParse(Context context)
+    {
         Intent intent = new Intent(context, PortHostService.class);
         context.startService(intent);
     }
 
-    public static void stopParse(Context context) {
+    public static void stopParse(Context context)
+    {
         Intent intent = new Intent(context, PortHostService.class);
         context.stopService(intent);
     }

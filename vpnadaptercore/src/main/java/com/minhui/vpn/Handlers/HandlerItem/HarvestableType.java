@@ -9,28 +9,33 @@ package com.minhui.vpn.Handlers.HandlerItem;
         WOOD_CRITTER_RED,
         WOOD_CRITTER_DEAD,
         WOOD_GUARDIAN_RED,
+
         ROCK,
         ROCK_CRITTER_GREEN,
         ROCK_CRITTER_RED,
         ROCK_CRITTER_DEAD,
         ROCK_GUARDIAN_RED,
+
         FIBER,
         FIBER_CRITTER,
         FIBER_GUARDIAN_RED,
         FIBER_GUARDIAN_DEAD,
+
         HIDE,
         HIDE_FOREST,
         HIDE_STEPPE,
         HIDE_SWAMP,
         HIDE_MOUNTAIN,
         HIDE_HIGHLAND,
-        HIDE_CRITTER,
-        HIDE_GUARDIAN,
+        HIDE_HIGHLAND2,
+        HIDE_HIGHLAND3,
+
         ORE,
         ORE_CRITTER_GREEN,
         ORE_CRITTER_RED,
         ORE_CRITTER_DEAD,
         ORE_GUARDIAN_RED,
+
         DEADRAT,
         SILVERCOINS_NODE,
         SILVERCOINS_LOOT_STANDARD_TRASH,
@@ -55,10 +60,7 @@ package com.minhui.vpn.Handlers.HandlerItem;
         CHEST_EXP_SILVERCOINS_LOOT_STANDARD,
         CHEST_EXP_SILVERCOINS_LOOT_VETERAN,
         SILVERCOINS_LOOT_SARCOPHAGUS_STANDARD_MINIBOSS,
-
-
-
-
+        FISHING_ZONE
 
     }
 

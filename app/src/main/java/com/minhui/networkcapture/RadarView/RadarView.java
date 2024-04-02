@@ -24,105 +24,86 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
-public class RadarView extends View {
-
+public class RadarView extends View
+{
     Paint paintCenterObject;
     Matrix transformationMatrix;
-
     public DrawPlayers drawPlayers = new DrawPlayers();
     public DrawMobs drawMobs = new DrawMobs();
     public HarvestingDraw harvestingDraw = new HarvestingDraw();
     public DrawChests drawChests = new DrawChests();
-
+    public FishingZoneDraw fishingZoneDraw = new FishingZoneDraw();
 
     Paint borderPaint;
     BitmapCache bitmapCache = new BitmapCache();
 
-
-
-    @Subscribe
-    public void onMessage(String event){
-
-        //    Log.d("draw","call");
+    @Subscribe public void onMessage(String event)
+    {
+        //  Log.d("draw","call");
        invalidate();
-
     }
 
-
-    public   void init()
+    public void init()
     {
         EventBus.getDefault().register(this);
         paintCenterObject =new Paint();
         drawPlayers.init(this);
         drawMobs.init(this);
         harvestingDraw.init(this);
+        fishingZoneDraw.init(this);
         drawChests.init(this);
 
-         borderPaint = new Paint();
+        borderPaint = new Paint();
         borderPaint.setStyle(Paint.Style.STROKE);
         borderPaint.setStrokeWidth(RadarSettings.getInstance().radarCircleSquareBorderBar);
         borderPaint.setColor(getContext().getColor(R.color.colorBlue));
 
-
-
         paintCenterObject.setColor(getContext().getColor(R.color.colorPrimary));
         paintCenterObject.setStyle(Paint.Style.FILL);
-        this.post(new Runnable() {
-            @Override
-            public void run() {
-                initMatrix();
 
-
-            }
-        });
+        this.post(() -> initMatrix());
     }
     public void setBorderSize(int size)
     {
-
         borderPaint.setStrokeWidth(size);
     }
 
     public  void initMatrix()
     {
-
         transformationMatrix  = new Matrix();
 
         float radarCenterX = getWidth() / 2f;
         float radarCenterY = getHeight() / 2f;
 
-
-
         transformationMatrix.postTranslate(radarCenterX, radarCenterY);
         transformationMatrix.postRotate(225,radarCenterX,radarCenterY);
         transformationMatrix.postScale(RadarSettings.getInstance().radarScaleBar,RadarSettings.getInstance().radarScaleBar,radarCenterX,radarCenterY);
-
-
     }
 
-    public RadarView(Context context) {
+    public RadarView(Context context)
+    {
         super(context);
         init();
     }
 
-    public RadarView(Context context, AttributeSet attrs) {
+    public RadarView(Context context, AttributeSet attrs)
+    {
         super(context, attrs);
         init();
     }
 
-    public RadarView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public RadarView(Context context, AttributeSet attrs, int defStyleAttr)
+    {
         super(context, attrs, defStyleAttr);
         init();
     }
 
-
-
     ArrayList<Player> playerList;
-
-
 
     @SuppressLint("DrawAllocation")
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(Canvas canvas)
+    {
       //  super.onDraw(canvas);
 
         if(transformationMatrix==null)
@@ -130,13 +111,14 @@ public class RadarView extends View {
             return;
         }
 
-
         float lpX = MainHandler.getInstance().playersHandler.localPlayerPosX();
         float lpY = MainHandler.getInstance().playersHandler.localPlayerPosY();
+
         if(!RadarSettings.getInstance().radarShowTopMost)
         {
             canvas.drawCircle(getWidth()/2,getHeight()/2, RadarSettings.getInstance().radarMiddleCircleBar, paintCenterObject );
         }
+
         if(RadarSettings.getInstance().radarShowSquare)
         {
             canvas.drawRect(0, 0, getWidth(), getHeight(), borderPaint);
@@ -147,24 +129,15 @@ public class RadarView extends View {
             canvas.drawCircle(getWidth()/2, getHeight()/2, getWidth()/2 -  RadarSettings.getInstance().radarMiddleCircleBar  , borderPaint);
         }
 
-
-
-
         harvestingDraw.draw(canvas,lpX,lpY,transformationMatrix, bitmapCache);
+        fishingZoneDraw.draw(canvas,lpX,lpY,transformationMatrix, bitmapCache);
         drawMobs.draw(canvas,lpX,lpY,transformationMatrix, bitmapCache);
         drawChests.draw(canvas,lpX,lpY,transformationMatrix, bitmapCache);
         drawPlayers.draw(canvas,lpX,lpY,transformationMatrix);
-
-
 
         if(RadarSettings.getInstance().radarShowTopMost)
         {
             canvas.drawCircle(getWidth()/2,getHeight()/2, RadarSettings.getInstance().radarMiddleCircleBar, paintCenterObject );
         }
-
-
-
     }
-
-
 }

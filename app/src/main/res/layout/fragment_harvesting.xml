@@ -15,16 +15,14 @@
     android:layout_height="match_parent">
 
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:layout_marginTop="20dp"
         android:orientation="vertical"
 
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="20dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,7 +31,6 @@
             android:textColor="@color/white_FFFFFFFF"
 
             android:textSize="20dp" />
-
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -76,8 +73,8 @@
             <CheckBox
                 android:id="@+id/tier2"
                 android:layout_width="wrap_content"
-                android:layout_marginLeft="50dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
                 android:buttonTint="@color/white_FFFFFFFF"
                 app:layout_constraintBottom_toBottomOf="@+id/textView"
                 app:layout_constraintStart_toEndOf="@+id/texhgertView1"
@@ -125,10 +122,10 @@
                 tools:ignore="DuplicateIds" />
 
             <CheckBox
-                android:layout_marginLeft="50dp"
                 android:id="@+id/tier4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
                 android:buttonTint="@color/white_FFFFFFFF"
                 app:layout_constraintBottom_toBottomOf="@+id/textView"
                 app:layout_constraintStart_toEndOf="@+id/textView1"
@@ -228,9 +225,9 @@
 
             <CheckBox
                 android:id="@+id/tier8"
-                android:layout_marginLeft="50dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
                 android:buttonTint="@color/white_FFFFFFFF"
                 app:layout_constraintBottom_toBottomOf="@+id/textView"
                 app:layout_constraintStart_toEndOf="@+id/teerhyerxtView1"
@@ -266,11 +263,11 @@
 
             <CheckBox
 
+                android:id="@+id/enchant0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
 
-                android:id="@+id/enchant0"
+                android:layout_marginLeft="50dp"
                 android:buttonTint="@color/white_FFFFFFFF"
                 app:layout_constraintBottom_toBottomOf="@+id/textView1"
                 app:layout_constraintStart_toStartOf="parent"
@@ -296,11 +293,11 @@
 
             <CheckBox
 
+                android:id="@+id/enchant1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
 
-                android:id="@+id/enchant1"
+                android:layout_marginLeft="50dp"
                 android:buttonTint="@color/white_FFFFFFFF"
                 app:layout_constraintBottom_toBottomOf="@+id/textView1"
                 app:layout_constraintStart_toStartOf="parent"
@@ -324,10 +321,10 @@
 
             <CheckBox
 
+                android:id="@+id/enchant2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
-                android:id="@+id/enchant2"
                 android:buttonTint="@color/white_FFFFFFFF"
                 app:layout_constraintBottom_toBottomOf="@+id/textView1"
                 app:layout_constraintStart_toStartOf="parent"
@@ -352,10 +349,10 @@
 
             <CheckBox
 
+                android:id="@+id/enchant3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
-                android:id="@+id/enchant3"
                 android:buttonTint="@color/white_FFFFFFFF"
                 app:layout_constraintBottom_toBottomOf="@+id/textView1"
                 app:layout_constraintStart_toStartOf="parent"
@@ -379,10 +376,10 @@
 
             <CheckBox
 
+                android:id="@+id/enchant4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
-                android:id="@+id/enchant4"
                 android:buttonTint="@color/white_FFFFFFFF"
                 app:layout_constraintBottom_toBottomOf="@+id/textView1"
                 app:layout_constraintStart_toStartOf="parent"
@@ -395,9 +392,7 @@
             android:layout_height="wrap_content"
             android:text="Type "
             android:textColor="@color/white_FFFFFFFF"
-
             android:textSize="20dp" />
-
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -423,7 +418,6 @@
                 android:buttonTint="@color/white_FFFFFFFF"
                 app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -502,7 +496,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -527,8 +520,30 @@
                 app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp">
 
+            <TextView
+                android:id="@+id/textViehbdfhgw24358"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fishing Zone"
+                android:textColor="@color/white_FFFFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="DuplicateIds,MissingConstraints" />
 
+            <CheckBox
+                android:id="@+id/fishingZone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="120dp"
+                android:buttonTint="@color/white_FFFFFFFF"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -537,7 +552,6 @@
             android:textColor="@color/white_FFFFFFFF"
 
             android:textSize="20dp" />
-
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -563,9 +577,6 @@
                 android:buttonTint="@color/white_FFFFFFFF"
                 app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 
 
     </LinearLayout>

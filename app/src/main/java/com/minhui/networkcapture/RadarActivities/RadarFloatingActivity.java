@@ -28,27 +28,21 @@ import com.minhui.networkcapture.RadarDrawView;
 import com.minhui.networkcapture.RadarView.RadarView;
 import com.minhui.networkcapture.VPNCaptureActivity;
 
-public class RadarFloatingActivity {
-
-
+public class RadarFloatingActivity
+{
     LayoutInflater layoutInflater;
-
     private LinearLayout contentLayout;
 
-    private void switchContent(int layoutId) {
+    private void switchContent(int layoutId)
+    {
         contentLayout.removeAllViews();
         View contentView = layoutInflater.inflate(layoutId, contentLayout, false);
         contentLayout.addView(contentView);
     }
 
-
     public RadarFloatingActivity(View view, LayoutInflater layoutInflater, RadarView radarView, RadarDrawView radarDrawView)
     {
-
         this.layoutInflater = layoutInflater;
-
-
-
 
         TextView tab1 = view.findViewById(R.id.tab1);
         TextView tab2 = view.findViewById(R.id.tab2);
@@ -58,10 +52,7 @@ public class RadarFloatingActivity {
 
         contentLayout = view.findViewById(R.id.content_layout);
 
-
-
         switchContent(R.layout.fragment_pv_p);
-
 
         new PvPFragment(contentLayout );
 
@@ -71,97 +62,69 @@ public class RadarFloatingActivity {
         tab4.setBackgroundColor(view.getContext().getColor(R.color.background));
         tab5.setBackgroundColor(view.getContext().getColor(R.color.background));
 
+        tab1.setOnClickListener(view1 ->
+        {
+            switchContent(R.layout.fragment_pv_p);
 
+            tab1.setBackgroundColor(view1.getContext().getColor(R.color.dashboard));
+            tab2.setBackgroundColor(view1.getContext().getColor(R.color.background));
+            tab3.setBackgroundColor(view1.getContext().getColor(R.color.background));
+            tab4.setBackgroundColor(view1.getContext().getColor(R.color.background));
+            tab5.setBackgroundColor(view1.getContext().getColor(R.color.background));
 
-        tab1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                switchContent(R.layout.fragment_pv_p);
-
-                tab1.setBackgroundColor(view.getContext().getColor(R.color.dashboard));
-                tab2.setBackgroundColor(view.getContext().getColor(R.color.background));
-                tab3.setBackgroundColor(view.getContext().getColor(R.color.background));
-                tab4.setBackgroundColor(view.getContext().getColor(R.color.background));
-                tab5.setBackgroundColor(view.getContext().getColor(R.color.background));
-                new PvPFragment(contentLayout );
-            }
+            new PvPFragment(contentLayout );
         });
 
+        tab2.setOnClickListener(view12 ->
+        {
+            switchContent(R.layout.fragment_harvesting);
 
-        tab2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            tab1.setBackgroundColor(view12.getContext().getColor(R.color.background));
+            tab2.setBackgroundColor(view12.getContext().getColor(R.color.dashboard));
+            tab3.setBackgroundColor(view12.getContext().getColor(R.color.background));
+            tab4.setBackgroundColor(view12.getContext().getColor(R.color.background));
+            tab5.setBackgroundColor(view12.getContext().getColor(R.color.background));
 
-                switchContent(R.layout.fragment_harvesting);
-
-                tab1.setBackgroundColor(view.getContext().getColor(R.color.background));
-                tab2.setBackgroundColor(view.getContext().getColor(R.color.dashboard));
-                tab3.setBackgroundColor(view.getContext().getColor(R.color.background));
-                tab4.setBackgroundColor(view.getContext().getColor(R.color.background));
-                tab5.setBackgroundColor(view.getContext().getColor(R.color.background));
-
-                new HarvestingFragment(contentLayout );
-
-
-            }
+            new HarvestingFragment(contentLayout);
         });
 
+        tab3.setOnClickListener(view13 ->
+        {
+            switchContent(R.layout.fragment_mobs);
 
+            tab1.setBackgroundColor(view13.getContext().getColor(R.color.background));
+            tab2.setBackgroundColor(view13.getContext().getColor(R.color.background));
+            tab3.setBackgroundColor(view13.getContext().getColor(R.color.dashboard));
+            tab4.setBackgroundColor(view13.getContext().getColor(R.color.background));
+            tab5.setBackgroundColor(view13.getContext().getColor(R.color.background));
 
-        tab3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                switchContent(R.layout.fragment_mobs);
-
-
-                tab1.setBackgroundColor(view.getContext().getColor(R.color.background));
-                tab2.setBackgroundColor(view.getContext().getColor(R.color.background));
-                tab3.setBackgroundColor(view.getContext().getColor(R.color.dashboard));
-                tab4.setBackgroundColor(view.getContext().getColor(R.color.background));
-                tab5.setBackgroundColor(view.getContext().getColor(R.color.background));
-
-                new MobsFragment(contentLayout);
-
-
-            }
-        });
-        tab4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                switchContent(R.layout.fragment_chests);
-
-
-                tab1.setBackgroundColor(view.getContext().getColor(R.color.background));
-                tab2.setBackgroundColor(view.getContext().getColor(R.color.background));
-                tab3.setBackgroundColor(view.getContext().getColor(R.color.background));
-                tab4.setBackgroundColor(view.getContext().getColor(R.color.dashboard));
-                tab5.setBackgroundColor(view.getContext().getColor(R.color.background));
-
-                new ChestsFragment(contentLayout);
-
-            }
+            new MobsFragment(contentLayout);
         });
 
+        tab4.setOnClickListener(view14 ->
+        {
+            switchContent(R.layout.fragment_chests);
 
-        tab5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            tab1.setBackgroundColor(view14.getContext().getColor(R.color.background));
+            tab2.setBackgroundColor(view14.getContext().getColor(R.color.background));
+            tab3.setBackgroundColor(view14.getContext().getColor(R.color.background));
+            tab4.setBackgroundColor(view14.getContext().getColor(R.color.dashboard));
+            tab5.setBackgroundColor(view14.getContext().getColor(R.color.background));
 
-                switchContent(R.layout.fragment_settings);
+            new ChestsFragment(contentLayout);
+        });
 
+        tab5.setOnClickListener(view15 ->
+        {
+            switchContent(R.layout.fragment_settings);
 
-                tab1.setBackgroundColor(view.getContext().getColor(R.color.background));
-                tab2.setBackgroundColor(view.getContext().getColor(R.color.background));
-                tab3.setBackgroundColor(view.getContext().getColor(R.color.background));
-                tab4.setBackgroundColor(view.getContext().getColor(R.color.background));
-                tab5.setBackgroundColor(view.getContext().getColor(R.color.dashboard));
+            tab1.setBackgroundColor(view15.getContext().getColor(R.color.background));
+            tab2.setBackgroundColor(view15.getContext().getColor(R.color.background));
+            tab3.setBackgroundColor(view15.getContext().getColor(R.color.background));
+            tab4.setBackgroundColor(view15.getContext().getColor(R.color.background));
+            tab5.setBackgroundColor(view15.getContext().getColor(R.color.dashboard));
 
-                new SettingsFragment(contentLayout, radarView , radarDrawView);
-
-            }
+            new SettingsFragment(contentLayout, radarView , radarDrawView);
         });
     }
 }

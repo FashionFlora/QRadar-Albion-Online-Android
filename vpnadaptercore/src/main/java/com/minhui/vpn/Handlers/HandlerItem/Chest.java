@@ -1,7 +1,7 @@
 package com.minhui.vpn.Handlers.HandlerItem;
 
-
-public class Chest {
+public class Chest
+{
     private float posX;
     private float posY;
     private String name;

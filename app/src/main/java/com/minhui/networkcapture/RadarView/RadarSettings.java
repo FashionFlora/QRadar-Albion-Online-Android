@@ -12,11 +12,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class RadarSettings {
+public class RadarSettings
+{
     private static RadarSettings instance;
-
     public  ArrayList<HarvestableType> harvestableTypes = new ArrayList<>();
-
     public boolean playerDot = false;
     public boolean playerNickname = false;
     public boolean playerHealth = false;
@@ -26,7 +25,7 @@ public class RadarSettings {
     public boolean playerSound= false;
 
     public boolean[] harvestingTiers = new boolean[]{false,false,false,false,false,false,false,false};
-    public boolean[] harvestingEnchants = new boolean[]{false,false,false,false,false};
+    public boolean[] harvestingEnchants = new boolean[]{false,false,false,false,false,false};
 
     public boolean[] mobEnchants = new boolean[]{false,false,false,false,false};
     public boolean[] mobTiers = new boolean[]{false,false,false,false,false,false,false,false};
@@ -45,23 +44,17 @@ public class RadarSettings {
     public boolean harvestingHide;
     public boolean harvestingOre;
     public boolean harvestingRock;
+    public boolean harvestingZoneFishing;
     public boolean harvestingSize;
-
     public HashMap<String, Boolean> chests = new HashMap<>();
-
-
     public int pvpCircleBar;
     public int pvpCircleGapBar;
 
     public int pvpTextSizeBar;
     public int pvpTextGapBar;
-
     public int harvestingWidthHeightBar;
     public int harvestingIconTextGapBar;
     public int harvestingIconTextSizeBar;
-
-
-
     public int mobTextSizeBar;
     public int mobTextGapBar;
     public int mobRadarSizeBar;
@@ -83,10 +76,10 @@ public class RadarSettings {
     public int floatingXBar;
     public int settingsTransparencyBar;
 
-
-    public void init(Context context){
-
+    public void init(Context context)
+    {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+
         playerDot = sharedPreferences.getBoolean("playerDot", false);
         playerNickname = sharedPreferences.getBoolean("playerNickname", false);
         playerHealth = sharedPreferences.getBoolean("playerHealth", false);
@@ -110,12 +103,12 @@ public class RadarSettings {
         harvestingEnchants[3]  = sharedPreferences.getBoolean("harvestingEnchant3", false);
         harvestingEnchants[4]  = sharedPreferences.getBoolean("harvestingEnchant4", false);
 
-
         harvestingFiber = sharedPreferences.getBoolean("harvestingFiber", false);
         harvestingRock = sharedPreferences.getBoolean("harvestingRock", false);
         harvestingOre = sharedPreferences.getBoolean("harvestingOre", false);
         harvestingHide = sharedPreferences.getBoolean("harvestingHide", false);
         harvestingWood = sharedPreferences.getBoolean("harvestingWood", false);
+        harvestingZoneFishing = sharedPreferences.getBoolean("harvestingZoneFishing", false);
 
         harvestingSize = sharedPreferences.getBoolean("harvestingSize", false);
 
@@ -123,11 +116,6 @@ public class RadarSettings {
         chests.put("uncommon",sharedPreferences.getBoolean("chestUncommon", false));
         chests.put("rare",sharedPreferences.getBoolean("chestRare", false));
         chests.put("legendary",sharedPreferences.getBoolean("chestLegendary", false));
-
-
-
-
-
 
         if(harvestingFiber)
         {
@@ -137,9 +125,9 @@ public class RadarSettings {
                     HarvestableType.FIBER_GUARDIAN_DEAD,
                     HarvestableType.FIBER_GUARDIAN_RED), true);
         }
+
         if(harvestingRock)
         {
-
             updateHarvestableType(Arrays.asList(
                     HarvestableType.ROCK,
                     HarvestableType.ROCK_CRITTER_DEAD,
@@ -150,7 +138,6 @@ public class RadarSettings {
 
         if(harvestingOre)
         {
-
             updateHarvestableType(Arrays.asList(
                     HarvestableType.ORE,
                     HarvestableType.ORE_CRITTER_DEAD,
@@ -161,7 +148,6 @@ public class RadarSettings {
 
         if(harvestingWood)
         {
-
             updateHarvestableType(Arrays.asList(
                     HarvestableType.WOOD,
                     HarvestableType.WOOD_CRITTER_DEAD,
@@ -170,19 +156,22 @@ public class RadarSettings {
                     HarvestableType.WOOD_GIANTTREE,
                     HarvestableType.WOOD_GUARDIAN_RED),true);
         }
+
         if(harvestingHide)
         {
-
             updateHarvestableType(Arrays.asList(
                     HarvestableType.HIDE,
                     HarvestableType.HIDE_FOREST,
                     HarvestableType.HIDE_STEPPE,
                     HarvestableType.HIDE_SWAMP,
                     HarvestableType.HIDE_MOUNTAIN,
-                    HarvestableType.HIDE_HIGHLAND,
-                    HarvestableType.HIDE_CRITTER,
-                    HarvestableType.HIDE_GUARDIAN),true);
+                    HarvestableType.HIDE_HIGHLAND),true);
+        }
 
+        if (harvestingZoneFishing)
+        {
+            updateHarvestableType(List.of(
+                    HarvestableType.FISHING_ZONE),true);
         }
 
         mobTiers[0] =  sharedPreferences.getBoolean("mobTier1", false);
@@ -200,9 +189,6 @@ public class RadarSettings {
         mobEnchants[3] = sharedPreferences.getBoolean("mobEnchant3", false);
         mobEnchants[4] = sharedPreferences.getBoolean("mobEnchant4", false);
 
-
-
-
         mobHp =  sharedPreferences.getBoolean("mobHp", false);
 
         mobHarvestable = sharedPreferences.getBoolean("mobHarvestable", false);
@@ -216,20 +202,14 @@ public class RadarSettings {
         radarFloatingSquareX = sharedPreferences.getInt("radarFloatingSquareX", -999);
         radarFloatingSquareY = sharedPreferences.getInt("radarFloatingSquareY", -999);
 
-
-
-
         pvpCircleBar = sharedPreferences.getInt("pvpCircleBar", 10);
         pvpCircleGapBar = sharedPreferences.getInt("pvpCircleGapBar", 25);
         pvpTextGapBar =   sharedPreferences.getInt("pvpTextGapBar", 15);
         pvpTextSizeBar =   sharedPreferences.getInt("pvpTextSizeBar", 15);
 
-
         harvestingWidthHeightBar = sharedPreferences.getInt("harvestingWidthHeightBar", 50);
         harvestingIconTextGapBar = sharedPreferences.getInt("harvestingIconTextGapBar", 15);
         harvestingIconTextSizeBar =  sharedPreferences.getInt("harvestingIconTextSizeBar", 15);
-
-
 
         mobTextSizeBar=  sharedPreferences.getInt("mobTextSizeBar", 15);
         mobTextGapBar=  sharedPreferences.getInt("mobTextGapBar", 15);
@@ -249,13 +229,8 @@ public class RadarSettings {
 
         radarCircleSquareBorderBar =sharedPreferences.getInt("radarCircleSquareBorderBar", 5);
 
-
-
         radarXBar  = sharedPreferences.getInt("radarXBar",10);
         radarYBar = sharedPreferences.getInt("radarYBar",10);
-
-
-
 
         floatingWidthHeightBar = sharedPreferences.getInt("floatingWidthHeightBar",115);
         settingsHeightBar = sharedPreferences.getInt("settingsHeightBar",600);
@@ -266,56 +241,63 @@ public class RadarSettings {
         settingsTransparencyBar = sharedPreferences.getInt("settingsTransparencyBar",1);
     }
 
-    private RadarSettings() {
+    private RadarSettings()
+    {
         // Initialize settings here
     }
 
-
     public boolean isInChests(String name)
     {
-        for (Map.Entry<String, Boolean> entry :chests.entrySet()) {
-
+        for (Map.Entry<String, Boolean> entry :chests.entrySet())
+        {
             if(name.contains(entry.getKey()))
             {
                 return entry.getValue();
-
             }
-
         }
         return  false;
-
     }
 
     public  boolean isInHarvestable(HarvestableType ht) {
         return harvestableTypes.contains(ht);
     }
 
-    public  void updateHarvestableType(List<HarvestableType> h, boolean show) {
-        if (show) {
-            for (HarvestableType ht : h) {
-                if (!harvestableTypes.contains(ht)) {
+    public  void updateHarvestableType(List<HarvestableType> h, boolean show)
+    {
+        if (show)
+        {
+            for (HarvestableType ht : h)
+            {
+                if (!harvestableTypes.contains(ht))
+                {
                     harvestableTypes.add(ht);
                 }
             }
-        } else {
-            for (HarvestableType ht : h) {
-                if (harvestableTypes.contains(ht)) {
+        }
+        else
+        {
+            for (HarvestableType ht : h)
+            {
+                if (harvestableTypes.contains(ht))
+                {
                     harvestableTypes.remove(ht);
                 }
             }
         }
     }
 
-    public static RadarSettings getInstance() {
-        if (instance == null) {
-            synchronized (RadarSettings.class) {
-                if (instance == null) {
+    public static RadarSettings getInstance()
+    {
+        if (instance == null)
+        {
+            synchronized (RadarSettings.class)
+            {
+                if (instance == null)
+                {
                     instance = new RadarSettings();
                 }
             }
         }
         return instance;
     }
-
-
 }

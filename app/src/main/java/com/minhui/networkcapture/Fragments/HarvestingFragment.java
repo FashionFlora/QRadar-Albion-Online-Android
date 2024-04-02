@@ -2,18 +2,10 @@ package com.minhui.networkcapture.Fragments;
 
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
-import android.os.Bundle;
-
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-
 import android.preference.PreferenceManager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.TextView;
 
 import com.minhui.networkcapture.R;
 import com.minhui.networkcapture.RadarView.RadarSettings;
@@ -22,10 +14,8 @@ import com.minhui.vpn.Handlers.HandlerItem.HarvestableType;
 import java.util.Arrays;
 import java.util.List;
 
-
-public class HarvestingFragment {
-
-
+public class HarvestingFragment
+{
     CheckBox tier1;
     CheckBox tier2;
     CheckBox tier3;
@@ -47,15 +37,13 @@ public class HarvestingFragment {
     CheckBox rock;
     CheckBox hide;
     CheckBox size;
+    CheckBox Fishing;
     
 
     public HarvestingFragment(View view)
     {
-
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(view.getContext());
         SharedPreferences.Editor editor = sharedPreferences.edit();
-
-
 
         tier1 = view.findViewById(R.id.tier1);
         tier2 = view.findViewById(R.id.tier2);
@@ -77,6 +65,7 @@ public class HarvestingFragment {
         ore = view.findViewById(R.id.ore);
         rock = view.findViewById(R.id.rock);
         hide = view.findViewById(R.id.hide);
+        Fishing = view.findViewById(R.id.fishingZone);
 
         size =view.findViewById(R.id.harvestingSize);
 
@@ -100,264 +89,191 @@ public class HarvestingFragment {
         ore.setChecked(RadarSettings.getInstance().harvestingOre);
         rock.setChecked(RadarSettings.getInstance().harvestingRock);
         hide.setChecked(RadarSettings.getInstance().harvestingHide);
+        Fishing.setChecked(RadarSettings.getInstance().harvestingZoneFishing);
 
         size.setChecked(RadarSettings.getInstance().harvestingSize);
 
-        tier1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @SuppressLint("CommitPrefEdits")
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        tier1.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("harvestingTier1",b);
+            editor.apply();
+            RadarSettings.getInstance().harvestingTiers[0] = b;
+        });
 
-                editor.putBoolean("harvestingTier1",b);
-                editor.apply();
-                RadarSettings.getInstance().harvestingTiers[0] =b;
+        tier2.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("harvestingTier2",b);
+            editor.apply();
+            RadarSettings.getInstance().harvestingTiers[1] =b;
+        });
 
+        tier3.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("harvestingTier3",b);
+            editor.apply();
+            RadarSettings.getInstance().harvestingTiers[2] = b;
+        });
 
+        tier4.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("harvestingTier4",b);
+            editor.apply();
+            RadarSettings.getInstance().harvestingTiers[3] = b;
+        });
 
-            }
+        tier5.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("harvestingTier5",b);
+            editor.apply();
+            RadarSettings.getInstance().harvestingTiers[4] = b;
+        });
+
+        tier6.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("harvestingTier6",b);
+            editor.apply();
+            RadarSettings.getInstance().harvestingTiers[5] = b;
+        });
+
+        tier7.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("harvestingTier7",b);
+            editor.apply();
+            RadarSettings.getInstance().harvestingTiers[6] = b;
+        });
+
+        tier8.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("harvestingTier8",b);
+            editor.apply();
+            RadarSettings.getInstance().harvestingTiers[7] =b;
+        });
+
+        enchant0.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("harvestingEnchant0",b);
+            editor.apply();
+            RadarSettings.getInstance().harvestingEnchants[0] = b;
+        });
+
+        enchant1.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("harvestingEnchant1",b);
+            editor.apply();
+            RadarSettings.getInstance().harvestingEnchants[1] = b;
+        });
+
+        enchant2.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("harvestingEnchant2",b);
+            editor.apply();
+            RadarSettings.getInstance().harvestingEnchants[2] =b;
+
+        });
+
+        enchant3.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("harvestingEnchant3",b);
+            editor.apply();
+            RadarSettings.getInstance().harvestingEnchants[3] = b;
+        });
+
+        enchant4.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("harvestingEnchant4",b);
+            editor.apply();
+            RadarSettings.getInstance().harvestingEnchants[4] = b;
+        });
+
+        fiber.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("harvestingFiber",b);
+            editor.apply();
+            RadarSettings.getInstance().harvestingFiber=b;
+
+            RadarSettings.getInstance().updateHarvestableType(Arrays.asList(
+                    HarvestableType.FIBER,
+                    HarvestableType.FIBER_CRITTER,
+                    HarvestableType.FIBER_GUARDIAN_DEAD,
+                    HarvestableType.FIBER_GUARDIAN_RED), b);
         });
 
 
-        tier2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        wood.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("harvestingWood",b);
+            editor.apply();
+            RadarSettings.getInstance().harvestingWood=b;
 
-                editor.putBoolean("harvestingTier2",b);
-                editor.apply();
-                RadarSettings.getInstance().harvestingTiers[1] =b;
-
-            }
-        });
-        tier3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                editor.putBoolean("harvestingTier3",b);
-                editor.apply();
-                RadarSettings.getInstance().harvestingTiers[2] =b;
-
-            }
-        });
-        tier4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                editor.putBoolean("harvestingTier4",b);
-                editor.apply();
-                RadarSettings.getInstance().harvestingTiers[3] =b;
-
-            }
-        });
-        tier5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                editor.putBoolean("harvestingTier5",b);
-                editor.apply();
-                RadarSettings.getInstance().harvestingTiers[4] =b;
-
-            }
-        });
-        tier6.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                editor.putBoolean("harvestingTier6",b);
-                editor.apply();
-                RadarSettings.getInstance().harvestingTiers[5] =b;
-
-            }
+            RadarSettings.getInstance().updateHarvestableType(Arrays.asList(
+                    HarvestableType.WOOD,
+                    HarvestableType.WOOD_CRITTER_DEAD,
+                    HarvestableType.WOOD_CRITTER_GREEN,
+                    HarvestableType.WOOD_CRITTER_RED,
+                    HarvestableType.WOOD_GIANTTREE,
+                    HarvestableType.WOOD_GUARDIAN_RED), b);
         });
 
-        tier7.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                editor.putBoolean("harvestingTier7",b);
-                editor.apply();
-                RadarSettings.getInstance().harvestingTiers[6] =b;
+        ore.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("harvestingOre",b);
+            editor.apply();
+            RadarSettings.getInstance().harvestingOre = b;
 
-            }
+            RadarSettings.getInstance().updateHarvestableType(Arrays.asList(
+                    HarvestableType.ORE,
+                    HarvestableType.ORE_CRITTER_DEAD,
+                    HarvestableType.ORE_CRITTER_GREEN,
+                    HarvestableType.ORE_CRITTER_RED,
+                    HarvestableType.ORE_GUARDIAN_RED), b);
         });
 
-        tier8.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        rock.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("harvestingRock",b);
+            editor.apply();
+            RadarSettings.getInstance().harvestingRock =b;
 
-                editor.putBoolean("harvestingTier8",b);
-                editor.apply();
-                RadarSettings.getInstance().harvestingTiers[7] =b;
-
-            }
+            RadarSettings.getInstance().updateHarvestableType(Arrays.asList(
+                    HarvestableType.ROCK,
+                    HarvestableType.ROCK_CRITTER_DEAD,
+                    HarvestableType.ROCK_CRITTER_GREEN,
+                    HarvestableType.ROCK_CRITTER_RED,
+                    HarvestableType.ROCK_GUARDIAN_RED), b);
         });
 
+        hide.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("harvestingHide",b);
+            editor.apply();
+            RadarSettings.getInstance().harvestingHide = b;
 
-        enchant0.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-
-
-                editor.putBoolean("harvestingEnchant0",b);
-                editor.apply();
-                RadarSettings.getInstance().harvestingEnchants[0] =b;
-
-
-            }
+            RadarSettings.getInstance().updateHarvestableType(Arrays.asList(
+                    HarvestableType.HIDE,
+                    HarvestableType.HIDE_FOREST,
+                    HarvestableType.HIDE_STEPPE,
+                    HarvestableType.HIDE_SWAMP,
+                    HarvestableType.HIDE_MOUNTAIN,
+                    HarvestableType.HIDE_HIGHLAND,
+                    HarvestableType.HIDE_HIGHLAND2,
+                    HarvestableType.HIDE_HIGHLAND3), b);
         });
 
-        enchant1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        Fishing.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("harvestingZoneFishing",b);
+            editor.apply();
+            RadarSettings.getInstance().harvestingZoneFishing = b;
 
-
-
-                editor.putBoolean("harvestingEnchant1",b);
-                editor.apply();
-                RadarSettings.getInstance().harvestingEnchants[1] =b;
-
-
-            }
-        });
-        enchant2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-
-                editor.putBoolean("harvestingEnchant2",b);
-                editor.apply();
-                RadarSettings.getInstance().harvestingEnchants[2] =b;
-
-            }
-        });
-        enchant3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-
-                editor.putBoolean("harvestingEnchant3",b);
-                editor.apply();
-                RadarSettings.getInstance().harvestingEnchants[3] =b;
-
-            }
-        });
-        enchant4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-
-                editor.putBoolean("harvestingEnchant4",b);
-                editor.apply();
-                RadarSettings.getInstance().harvestingEnchants[4] =b;
-
-
-            }
+            RadarSettings.getInstance().updateHarvestableType(List.of(
+                    HarvestableType.FISHING_ZONE), b);
         });
 
-        fiber.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-                editor.putBoolean("harvestingFiber",b);
-                editor.apply();
-                RadarSettings.getInstance().harvestingFiber=b;
-
-                RadarSettings.getInstance().updateHarvestableType(Arrays.asList(
-                        HarvestableType.FIBER,
-                        HarvestableType.FIBER_CRITTER,
-                        HarvestableType.FIBER_GUARDIAN_DEAD,
-                        HarvestableType.FIBER_GUARDIAN_RED), b);
-
-
-            }
+        size.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("harvestingSize",b);
+            editor.apply();
+            RadarSettings.getInstance().harvestingSize = b;
         });
-
-
-        wood.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-                editor.putBoolean("harvestingWood",b);
-                editor.apply();
-                RadarSettings.getInstance().harvestingWood=b;
-
-                RadarSettings.getInstance().updateHarvestableType(Arrays.asList(
-                        HarvestableType.WOOD,
-                        HarvestableType.WOOD_CRITTER_DEAD,
-                        HarvestableType.WOOD_CRITTER_GREEN,
-                        HarvestableType.WOOD_CRITTER_RED,
-                        HarvestableType.WOOD_GIANTTREE,
-                        HarvestableType.WOOD_GUARDIAN_RED), b);
-
-            }
-        });
-        ore.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-                editor.putBoolean("harvestingOre",b);
-                editor.apply();
-                RadarSettings.getInstance().harvestingOre =b;
-
-
-                RadarSettings.getInstance().updateHarvestableType(Arrays.asList(
-                        HarvestableType.ORE,
-                        HarvestableType.ORE_CRITTER_DEAD,
-                        HarvestableType.ORE_CRITTER_GREEN,
-                        HarvestableType.ORE_CRITTER_RED,
-                        HarvestableType.ORE_GUARDIAN_RED), b);
-
-            }
-        });
-
-        rock.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-                editor.putBoolean("harvestingRock",b);
-                editor.apply();
-                RadarSettings.getInstance().harvestingRock =b;
-
-
-
-                RadarSettings.getInstance().updateHarvestableType(Arrays.asList(
-                        HarvestableType.ROCK,
-                        HarvestableType.ROCK_CRITTER_DEAD,
-                        HarvestableType.ROCK_CRITTER_GREEN,
-                        HarvestableType.ROCK_CRITTER_RED,
-                        HarvestableType.ROCK_GUARDIAN_RED), b);
-            }
-        });
-
-        hide.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-                editor.putBoolean("harvestingHide",b);
-                editor.apply();
-                RadarSettings.getInstance().harvestingHide =b;
-
-
-                RadarSettings.getInstance().updateHarvestableType(Arrays.asList(
-                        HarvestableType.HIDE,
-                        HarvestableType.HIDE_FOREST,
-                        HarvestableType.HIDE_STEPPE,
-                        HarvestableType.HIDE_SWAMP,
-                        HarvestableType.HIDE_MOUNTAIN,
-                        HarvestableType.HIDE_HIGHLAND,
-                        HarvestableType.HIDE_CRITTER,
-                        HarvestableType.HIDE_GUARDIAN), b);
-            }
-        });
-
-
-        size.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-                editor.putBoolean("harvestingSize",b);
-                editor.apply();
-                RadarSettings.getInstance().harvestingSize =b;
-            }
-        });
-
-
     }
-
-
 }

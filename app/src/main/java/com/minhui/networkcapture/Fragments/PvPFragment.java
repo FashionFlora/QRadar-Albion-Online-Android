@@ -2,25 +2,16 @@ package com.minhui.networkcapture.Fragments;
 
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
-import android.os.Bundle;
-
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-
 import android.preference.PreferenceManager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
-
+import androidx.appcompat.widget.Toolbar;
 import com.minhui.networkcapture.R;
 import com.minhui.networkcapture.RadarView.RadarSettings;
 
-
-public class PvPFragment {
-
+public class PvPFragment
+{
     CheckBox playerDot;
     CheckBox playerNickname;
     CheckBox playerHealth;
@@ -28,11 +19,8 @@ public class PvPFragment {
     CheckBox playerDistance;
     CheckBox playerSound;
     CheckBox playerGuildName;
-
     Toolbar toolbar;
     TextView textView;
-
-
 
     public PvPFragment(View view)
     {
@@ -54,82 +42,53 @@ public class PvPFragment {
         playerSound.setChecked(RadarSettings.getInstance().playerSound);
         playerGuildName.setChecked(RadarSettings.getInstance().playerGuildName);
 
-        playerDot.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                editor.putBoolean("playerDot",isChecked);
-                RadarSettings.getInstance().playerDot = isChecked;
-                editor.apply();
-
-
-            }
+        playerDot.setOnCheckedChangeListener((buttonView, isChecked) ->
+        {
+            editor.putBoolean("playerDot",isChecked);
+            RadarSettings.getInstance().playerDot = isChecked;
+            editor.apply();
         });
 
-        playerNickname.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                editor.putBoolean("playerNickname",isChecked);
-                RadarSettings.getInstance().playerNickname = isChecked;
-                editor.apply();
-
-            }
+        playerNickname.setOnCheckedChangeListener((buttonView, isChecked) ->
+        {
+            editor.putBoolean("playerNickname",isChecked);
+            RadarSettings.getInstance().playerNickname = isChecked;
+            editor.apply();
         });
 
-
-        playerMounted.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                editor.putBoolean("playerMounted",isChecked);
-                RadarSettings.getInstance().playerMounted = isChecked;
-                editor.apply();
-
-            }
+        playerMounted.setOnCheckedChangeListener((buttonView, isChecked) ->
+        {
+            editor.putBoolean("playerMounted",isChecked);
+            RadarSettings.getInstance().playerMounted = isChecked;
+            editor.apply();
         });
 
-
-
-        playerHealth.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                editor.putBoolean("playerHealth",isChecked);
-                RadarSettings.getInstance().playerHealth = isChecked;
-                editor.apply();
-
-            }
+        playerHealth.setOnCheckedChangeListener((buttonView, isChecked) ->
+        {
+            editor.putBoolean("playerHealth",isChecked);
+            RadarSettings.getInstance().playerHealth = isChecked;
+            editor.apply();
         });
 
-        playerDistance.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                editor.putBoolean("playerDistance",isChecked);
-                RadarSettings.getInstance().playerDistance = isChecked;
-                editor.apply();
-
-            }
+        playerDistance.setOnCheckedChangeListener((buttonView, isChecked) ->
+        {
+            editor.putBoolean("playerDistance",isChecked);
+            RadarSettings.getInstance().playerDistance = isChecked;
+            editor.apply();
         });
 
-        playerSound.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                editor.putBoolean("playerSound",isChecked);
-                RadarSettings.getInstance().playerSound = isChecked;
-                editor.apply();
-
-            }
+        playerSound.setOnCheckedChangeListener((buttonView, isChecked) ->
+        {
+            editor.putBoolean("playerSound",isChecked);
+            RadarSettings.getInstance().playerSound = isChecked;
+            editor.apply();
         });
 
-        playerGuildName.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                editor.putBoolean("playerGuildName",isChecked);
-                RadarSettings.getInstance().playerGuildName = isChecked;
-                editor.apply();
-
-            }
+        playerGuildName.setOnCheckedChangeListener((buttonView, isChecked) ->
+        {
+            editor.putBoolean("playerGuildName",isChecked);
+            RadarSettings.getInstance().playerGuildName = isChecked;
+            editor.apply();
         });
-
-
     }
-
-
 }

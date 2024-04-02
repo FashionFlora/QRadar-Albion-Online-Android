@@ -10,7 +10,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,8 +19,8 @@ import androidx.core.content.ContextCompat;
 import com.minhui.networkcapture.R;
 import com.minhui.networkcapture.RadarView.RadarSettings;
 
-public class MobsActivity extends AppCompatActivity {
-
+public class MobsActivity extends AppCompatActivity
+{
     CheckBox tier1;
     CheckBox tier2;
     CheckBox tier3;
@@ -43,15 +42,13 @@ public class MobsActivity extends AppCompatActivity {
     CheckBox showHp;
     CheckBox boss;
 
-
-
     TextView textView;
     Toolbar toolbar;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-
 
         setContentView(R.layout.activity_mobs);
 
@@ -61,22 +58,13 @@ public class MobsActivity extends AppCompatActivity {
         textView = findViewById(R.id.toolbarTitle);
         textView.setText("Mobs Settings");
 
-
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("");
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-
-
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         tier1 = findViewById(R.id.tier1);
         tier2 = findViewById(R.id.tier2);
@@ -93,7 +81,6 @@ public class MobsActivity extends AppCompatActivity {
         enchant2 = findViewById(R.id.enchant2);
         enchant3 = findViewById(R.id.enchant3);
         enchant4 = findViewById(R.id.enchant4);
-
 
         harvestable = findViewById(R.id.mobHarvestable);
         skinnable = findViewById(R.id.mobSkinnable);
@@ -116,266 +103,159 @@ public class MobsActivity extends AppCompatActivity {
         enchant4.setChecked(RadarSettings.getInstance().mobEnchants[4]);
         showHp.setChecked(RadarSettings.getInstance().mobHp);
 
-
         harvestable.setChecked(RadarSettings.getInstance().mobHarvestable);
         skinnable.setChecked(RadarSettings.getInstance().mobSkinnable);
         other.setChecked(RadarSettings.getInstance().mobOther);
         boss.setChecked(RadarSettings.getInstance().mobBoss);
-        tier1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
 
-                editor.putBoolean("mobTier1", b);
-                editor.apply();
+        tier1.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            RadarSettings.getInstance().mobTiers[0] = b;
 
+            editor.putBoolean("mobTier1", b);
+            editor.apply();
 
-                RadarSettings.getInstance().mobTiers[0] = b;
-
-
-                Log.d("mobTier1", ""+sharedPreferences.getBoolean("mobTier1",false));
-
-
-
-
-            }
+            Log.d("mobTier1", ""+sharedPreferences.getBoolean("mobTier1",false));
         });
 
 
-        tier2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        tier2.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            RadarSettings.getInstance().mobTiers[1] = b;
 
-                editor.putBoolean("mobTier2", b);
+            editor.putBoolean("mobTier2", b);
+            editor.apply();
 
-
-                RadarSettings.getInstance().mobTiers[1] = b;
-                editor.apply();
-
-            }
-        });
-        tier3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-                editor.putBoolean("mobTier3", b);
-
-
-                RadarSettings.getInstance().mobTiers[2] = b;
-                editor.apply();
-
-
-            }
-        });
-        tier4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-                editor.putBoolean("mobTier4", b);
-
-
-                RadarSettings.getInstance().mobTiers[3] = b;
-                editor.apply();
-
-            }
-        });
-        tier5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-                editor.putBoolean("mobTier5", b);
-
-
-                RadarSettings.getInstance().mobTiers[4] = b;
-                editor.apply();
-
-
-            }
-        });
-        tier6.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-                editor.putBoolean("mobTier6", b);
-
-
-                RadarSettings.getInstance().mobTiers[5] = b;
-                editor.apply();
-
-            }
         });
 
-        tier7.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        tier3.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            RadarSettings.getInstance().mobTiers[2] = b;
 
-                editor.putBoolean("mobTier7", b);
-
-
-                RadarSettings.getInstance().mobTiers[6] = b;
-                editor.apply();
-
-            }
+            editor.putBoolean("mobTier3", b);
+            editor.apply();
         });
 
-        tier8.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        tier4.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            RadarSettings.getInstance().mobTiers[3] = b;
 
-
-                editor.putBoolean("mobTier8", b);
-
-
-                RadarSettings.getInstance().mobTiers[7] = b;
-                editor.apply();
-
-            }
+            editor.putBoolean("mobTier4", b);
+            editor.apply();
         });
 
+        tier5.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            RadarSettings.getInstance().mobTiers[4] = b;
 
-        enchant0.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-                editor.putBoolean("mobEnchant0", b);
-
-
-                RadarSettings.getInstance().mobEnchants[0] = b;
-                editor.apply();
-
-            }
+            editor.putBoolean("mobTier5", b);
+            editor.apply();
         });
 
-        enchant1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        tier6.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            RadarSettings.getInstance().mobTiers[5] = b;
 
+            editor.putBoolean("mobTier6", b);
+            editor.apply();
+        });
 
-                editor.putBoolean("mobEnchant1", b);
+        tier7.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            RadarSettings.getInstance().mobTiers[6] = b;
 
+            editor.putBoolean("mobTier7", b);
+            editor.apply();
+        });
 
-                RadarSettings.getInstance().mobEnchants[1] = b;
-                editor.apply();
+        tier8.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            RadarSettings.getInstance().mobTiers[7] = b;
 
-            }
+            editor.putBoolean("mobTier8", b);
+            editor.apply();
+        });
+
+        enchant0.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            RadarSettings.getInstance().mobEnchants[0] = b;
+
+            editor.putBoolean("mobEnchant0", b);
+            editor.apply();
+        });
+
+        enchant1.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            RadarSettings.getInstance().mobEnchants[1] = b;
+
+            editor.putBoolean("mobEnchant1", b);
+            editor.apply();
+        });
+
+        enchant2.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            RadarSettings.getInstance().mobEnchants[2] = b;
+
+            editor.putBoolean("mobEnchant2", b);
+            editor.apply();
+        });
+
+        enchant3.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            RadarSettings.getInstance().mobEnchants[2] = b;
+
+            editor.putBoolean("mobEnchant3", b);
+            editor.apply();
+        });
+
+        enchant4.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            RadarSettings.getInstance().mobEnchants[4] = b;
+
+            editor.putBoolean("mobEnchant4", b);
+            editor.apply();
+        });
+
+        showHp.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            RadarSettings.getInstance().mobHp = b;
+
+            editor.putBoolean("mobHp", b);
+            editor.apply();
+        });
+
+        harvestable.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            RadarSettings.getInstance().mobHarvestable = b;
+
+            editor.putBoolean("mobHarvestable", b);
+            editor.apply();
         });
 
 
-        enchant2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        skinnable.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            RadarSettings.getInstance().mobSkinnable = b;
 
-                editor.putBoolean("mobEnchant2", b);
-
-
-                RadarSettings.getInstance().mobEnchants[2] = b;
-                editor.apply();
-
-            }
-        });
-
-        enchant3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-                editor.putBoolean("mobEnchant3", b);
-
-
-                RadarSettings.getInstance().mobEnchants[2] = b;
-                editor.apply();
-
-            }
-        });
-        enchant4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-
-                editor.putBoolean("mobEnchant4", b);
-
-
-                RadarSettings.getInstance().mobEnchants[4] = b;
-                editor.apply();
-
-            }
+            editor.putBoolean("mobSkinnable", b);
+            editor.apply();
         });
 
 
+        other.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            RadarSettings.getInstance().mobOther = b;
 
-        showHp.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-
-                editor.putBoolean("mobHp", b);
-
-
-                RadarSettings.getInstance().mobHp = b;
-                editor.apply();
-
-            }
+            editor.putBoolean("mobOther", b);
+            editor.apply();
         });
 
-        harvestable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        boss.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            RadarSettings.getInstance().mobBoss = b;
 
-                editor.putBoolean("mobHarvestable", b);
-
-
-                RadarSettings.getInstance().mobHarvestable = b;
-                editor.apply();
-
-
-            }
+            editor.putBoolean("mobBoss", b);
+            editor.apply();
         });
-
-
-        skinnable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-                editor.putBoolean("mobSkinnable", b);
-
-
-                RadarSettings.getInstance().mobSkinnable = b;
-                editor.apply();
-
-
-            }
-        });
-
-
-        other.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-                editor.putBoolean("mobOther", b);
-
-
-                RadarSettings.getInstance().mobOther = b;
-                editor.apply();
-
-
-            }
-        });
-
-        boss.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-
-                editor.putBoolean("mobBoss", b);
-
-
-                RadarSettings.getInstance().mobBoss = b;
-                editor.apply();
-
-            }
-        });
-
-
     }
-
-
-  
 }

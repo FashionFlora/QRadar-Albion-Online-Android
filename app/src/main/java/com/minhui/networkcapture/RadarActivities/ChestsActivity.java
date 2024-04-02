@@ -22,23 +22,19 @@ import androidx.core.content.ContextCompat;
 import com.minhui.networkcapture.R;
 import com.minhui.networkcapture.RadarView.RadarSettings;
 
-public class ChestsActivity extends AppCompatActivity {
-
-
+public class ChestsActivity extends AppCompatActivity
+{
     CheckBox chestGreen;
     CheckBox chestBlue;
     CheckBox chestPurple;
     CheckBox chestLegendary;
-
-
     Toolbar toolbar;
     TextView textView;
 
-
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -48,7 +44,6 @@ public class ChestsActivity extends AppCompatActivity {
         textView = findViewById(R.id.toolbarTitle);
         textView.setText("Chests Settings");
 
-
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -56,13 +51,7 @@ public class ChestsActivity extends AppCompatActivity {
         toolbar.setTitle("");
         actionBar.setTitle("");
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         chestGreen = findViewById(R.id.chestGreen);
         chestBlue = findViewById(R.id.chestBlue);
@@ -74,60 +63,36 @@ public class ChestsActivity extends AppCompatActivity {
         chestPurple.setChecked(RadarSettings.getInstance().chests.get("rare"));
         chestLegendary.setChecked(RadarSettings.getInstance().chests.get("legendary"));
 
-
-        chestGreen.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-
-                editor.putBoolean("chestStandard",b);
-                editor.apply();
-                RadarSettings.getInstance().chests.remove("standard");
-                RadarSettings.getInstance().chests.put("standard",b);
-
-            }
+        chestGreen.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("chestStandard",b);
+            editor.apply();
+            RadarSettings.getInstance().chests.remove("standard");
+            RadarSettings.getInstance().chests.put("standard",b);
         });
 
-        chestBlue.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-
-
-                editor.putBoolean("chestUncommon",b);
-                editor.apply();
-                RadarSettings.getInstance().chests.remove("uncommon");
-                RadarSettings.getInstance().chests.put("uncommon",b);
-
-
-            }
+        chestBlue.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("chestUncommon",b);
+            editor.apply();
+            RadarSettings.getInstance().chests.remove("uncommon");
+            RadarSettings.getInstance().chests.put("uncommon",b);
         });
 
-        chestPurple.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-
-                editor.putBoolean("chestRare",b);
-                editor.apply();
-                RadarSettings.getInstance().chests.remove("rare");
-                RadarSettings.getInstance().chests.put("rare",b);
-
-            }
+        chestPurple.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("chestRare",b);
+            editor.apply();
+            RadarSettings.getInstance().chests.remove("rare");
+            RadarSettings.getInstance().chests.put("rare",b);
         });
 
-        chestLegendary.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-
-                editor.putBoolean("chestLegendary",b);
-                editor.apply();
-                RadarSettings.getInstance().chests.remove("legendary");
-                RadarSettings.getInstance().chests.put("legendary",b);
-
-            }
+        chestLegendary.setOnCheckedChangeListener((compoundButton, b) ->
+        {
+            editor.putBoolean("chestLegendary",b);
+            editor.apply();
+            RadarSettings.getInstance().chests.remove("legendary");
+            RadarSettings.getInstance().chests.put("legendary",b);
         });
-
     }
 }

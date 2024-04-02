@@ -17,52 +17,53 @@ public class ProxyConfig {
 	String mSessionName;
 	int mMtu;
 	private List<VpnStatusListener> mVpnStatusListeners=new ArrayList<>();
-
-
-	private ProxyConfig() {
-
+	private ProxyConfig()
+	{
 
 	}
 
-
-
-	public String getSessionName() {
-		if (mSessionName == null) {
-			mSessionName = "Easy Firewall";
-		}
-		return mSessionName;
-	}
-
-	public int getMTU() {
-		if (mMtu > 1400 && mMtu <= 20000) {
+	public int getMTU()
+	{
+		if (mMtu > 1400 && mMtu <= 20000)
+		{
 			return mMtu;
-		} else {
+		}
+		else
+		{
 			return 20000;
 		}
 	}
 
-
-
-	public void registerVpnStatusListener(VpnStatusListener vpnStatusListener) {
+	public void registerVpnStatusListener(VpnStatusListener vpnStatusListener)
+	{
 		mVpnStatusListeners.add(vpnStatusListener);
 	}
-	public void unregisterVpnStatusListener(VpnStatusListener vpnStatusListener) {
+
+	public void unregisterVpnStatusListener(VpnStatusListener vpnStatusListener)
+	{
 		mVpnStatusListeners.remove(vpnStatusListener);
 	}
 
-	public void onVpnStart(Context context) {
+	public void onVpnStart(Context context)
+	{
 		VpnStatusListener[] vpnStatusListeners = new VpnStatusListener[mVpnStatusListeners.size()];
 		mVpnStatusListeners.toArray(vpnStatusListeners);
-		for(VpnStatusListener listener :vpnStatusListeners){
+
+		for(VpnStatusListener listener :vpnStatusListeners)
+		{
 			listener.onVpnStart(context);
 		}
+
 	}
 
-
-	public void onVpnEnd(Context context) {
+	public void onVpnEnd(Context context)
+	{
 		VpnStatusListener[] vpnStatusListeners = new VpnStatusListener[mVpnStatusListeners.size()];
 		mVpnStatusListeners.toArray(vpnStatusListeners);
-		for(VpnStatusListener listener :vpnStatusListeners){
+
+
+		for(VpnStatusListener listener :vpnStatusListeners)
+		{
 			listener.onVpnEnd(context);
 		}
 	}
@@ -71,38 +72,32 @@ public class ProxyConfig {
 		return new IPAddress("10.8.0.2", 32);
 	}
 
-	public interface VpnStatusListener {
+	public interface VpnStatusListener
+	{
 		void onVpnStart(Context context);
-
 		void onVpnEnd(Context context);
 	}
 
-	public static class IPAddress {
+	public static class IPAddress
+	{
 		public final String Address;
 		public final int PrefixLength;
 
-		public IPAddress(String address, int prefixLength) {
+		public IPAddress(String address, int prefixLength)
+		{
 			Address = address;
 			PrefixLength = prefixLength;
 		}
 
-		public IPAddress(String ipAddressString) {
-			String[] arrStrings = ipAddressString.split("/");
-			String address = arrStrings[0];
-			int prefixLength = 32;
-			if (arrStrings.length > 1) {
-				prefixLength = Integer.parseInt(arrStrings[1]);
-			}
-
-			this.Address = address;
-			this.PrefixLength = prefixLength;
-		}
-
 		@Override
-		public boolean equals(Object o) {
-			if (o == null || !(o instanceof IPAddress)) {
+		public boolean equals(Object o)
+		{
+			if (o == null || !(o instanceof IPAddress))
+			{
 				return false;
-			} else {
+			}
+			else
+			{
 				return this.toString().equals(o.toString());
 			}
 		}
